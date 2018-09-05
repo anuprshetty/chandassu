@@ -7,4 +7,7 @@ kandapadya_bp = Blueprint(
 
 @kandapadya_bp.route("/kandapadya")
 def kandapadya():
-    return render_template("kandapadya.html")
+    content = {
+        "title": "Kandapadya",
+    }
+    return render_template("kandapadya.html", content=content)
