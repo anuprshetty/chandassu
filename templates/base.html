@@ -8,9 +8,67 @@
       rel="stylesheet"
       href="{{url_for('static',filename='bootstrap/css/bootstrap.min.css')}}"
     />
+    <style>
+      body {
+        background-color: #d3d3d3;
+      }
+
+      .header-text-size {
+        font-size: 150%;
+      }
+
+      .dropdown-submenu {
+        position: relative;
+      }
+
+      .dropdown-submenu .dropdown-menu {
+        top: 0;
+        left: 100%;
+        margin-top: -1px;
+      }
+
+      .pre-wrap {
+        white-space: pre-wrap;
+        word-break: break-word;
+        font-size: 2.2rem;
+        padding: 20px;
+      }
+    </style>
   </head>
   <body>
-    {% block body %}{% endblock %}
+    {% include 'includes/header.html' %}
+    <div class="container">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <center>
+            <b><h1>{{ content.heading }}</h1></b>
+          </center>
+        </div>
+        <div class="panel-body">
+          {% block body %}{% endblock %} {% include 'includes/footer.html' %}
+        </div>
+      </div>
+    </div>
+    <script src="{{url_for('static',filename='bootstrap/js/jquery.min.js')}}"></script>
     <script src="{{url_for('static',filename='bootstrap/js/bootstrap.min.js')}}"></script>
+    <script>
+      $(document).ready(function () {
+        $(".dropdown-submenu a.nested-dropdown").on("click", function (e) {
+          $(this).next("ul").toggle();
+          e.stopPropagation();
+          e.preventDefault();
+        });
+
+        $(".dropdown-submenu").on("hide.bs.dropdown", function () {
+          $(this).find(".dropdown-menu").hide();
+          $(this).find(".dropdown-submenu .show").removeClass("show");
+        });
+
+        $(".dropdown-submenu").on("focusout", function () {
+          $(this).find(".dropdown-menu").hide();
+          $(this).find(".dropdown-submenu .show").removeClass("show");
+        });
+      });
+    </script>
   </body>
 </html>
