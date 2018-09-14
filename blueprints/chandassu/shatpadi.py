@@ -42,7 +42,14 @@ def kusuma():
 
 @shatpadi_bp.route("/bhoga")
 def bhoga():
-    content = {"title": "Bhoga"}
+    content = {
+        "title": "Bhoga",
+        "heading": "ಭೋಗ ಷಟ್ಪದಿ",
+        "footer": {
+            "previous": "home_bp.home",
+            "next": "home_bp.home",
+        },
+    }
     return render_template("bhoga.html", content=content)
 
 
