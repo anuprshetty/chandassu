@@ -21,5 +21,12 @@ def chandassu():
 
 @chandassu_bp.route("/kandapadya")
 def kandapadya():
-    content = {"title": "Kandapadya"}
+    content = {
+        "title": "Kandapadya",
+        "heading": "ಕಂದ ಪದ್ಯ",
+        "footer": {
+            "previous": "home_bp.home",
+            "next": "home_bp.home",
+        },
+    }
     return render_template("kandapadya.html", content=content)
