@@ -16,7 +16,14 @@ def shatpadi():
 
 @shatpadi_bp.route("/shara")
 def shara():
-    content = {"title": "Shara"}
+    content = {
+        "title": "Shara",
+        "heading": "ಶರ ಷಟ್ಪದಿ",
+        "footer": {
+            "previous": "home_bp.home",
+            "next": "home_bp.home",
+        },
+    }
     return render_template("shara.html", content=content)
 
 
