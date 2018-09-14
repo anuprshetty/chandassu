@@ -29,7 +29,14 @@ def shara():
 
 @shatpadi_bp.route("/kusuma")
 def kusuma():
-    content = {"title": "Kusuma"}
+    content = {
+        "title": "Kusuma",
+        "heading": "ಕುಸುಮ ಷಟ್ಪದಿ",
+        "footer": {
+            "previous": "home_bp.home",
+            "next": "home_bp.home",
+        },
+    }
     return render_template("kusuma.html", content=content)
 
 
