@@ -10,7 +10,14 @@ shatpadi_bp = Blueprint(
 
 @shatpadi_bp.route("/")
 def shatpadi():
-    content = {"title": "Shatpadi"}
+    content = {
+        "title": "Shatpadi",
+        "heading": "ಷಟ್ಪದಿ",
+        "footer": {
+            "previous": "home_bp.home",
+            "next": "home_bp.home",
+        },
+    }
     return render_template("shatpadi.html", content=content)
 
 
