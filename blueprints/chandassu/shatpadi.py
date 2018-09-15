@@ -55,7 +55,14 @@ def bhoga():
 
 @shatpadi_bp.route("/bhamini")
 def bhamini():
-    content = {"title": "Bhamini"}
+    content = {
+        "title": "Bhamini",
+        "heading": "ಭಾಮಿನೀ ಷಟ್ಪದಿ",
+        "footer": {
+            "previous": "home_bp.home",
+            "next": "home_bp.home",
+        },
+    }
     return render_template("bhamini.html", content=content)
 
 
