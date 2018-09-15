@@ -68,7 +68,14 @@ def bhamini():
 
 @shatpadi_bp.route("/vardhaka")
 def vardhaka():
-    content = {"title": "Vardhaka"}
+    content = {
+        "title": "Vardhaka",
+        "heading": "ವಾರ್ಧಕ ಷಟ್ಪದಿ",
+        "footer": {
+            "previous": "home_bp.home",
+            "next": "home_bp.home",
+        },
+    }
     return render_template("vardhaka.html", content=content)
 
 
