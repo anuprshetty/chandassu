@@ -81,5 +81,12 @@ def vardhaka():
 
 @shatpadi_bp.route("/parivardhini")
 def parivardhini():
-    content = {"title": "Parivardhini"}
+    content = {
+        "title": "Parivardhini",
+        "heading": "ಪರಿವರ್ಧಿನೀ ಷಟ್ಪದಿ",
+        "footer": {
+            "previous": "home_bp.home",
+            "next": "home_bp.home",
+        },
+    }
     return render_template("parivardhini.html", content=content)
