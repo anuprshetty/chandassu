@@ -27,6 +27,14 @@
         margin-top: -1px;
       }
 
+      .dropdown:hover > .dropdown-menu {
+        display: block;
+      }
+
+      .dropdown-submenu:hover > .dropdown-menu {
+        display: block;
+      }
+
       .pre-wrap {
         white-space: pre-wrap;
         word-break: break-word;
@@ -60,11 +68,6 @@
         });
 
         $(".dropdown-submenu").on("hide.bs.dropdown", function () {
-          $(this).find(".dropdown-menu").hide();
-          $(this).find(".dropdown-submenu .show").removeClass("show");
-        });
-
-        $(".dropdown-submenu").on("focusout", function () {
           $(this).find(".dropdown-menu").hide();
           $(this).find(".dropdown-submenu .show").removeClass("show");
         });
