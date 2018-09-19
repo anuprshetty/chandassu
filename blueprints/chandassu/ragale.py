@@ -29,7 +29,14 @@ def utsaha():
 
 @ragale_bp.route("/mandanila")
 def mandanila():
-    content = {"title": "Mandanila"}
+    content = {
+        "title": "Mandanila",
+        "heading": "ಮಂದಾನಿಲ ರಗಳೆ",
+        "footer": {
+            "previous": "home_bp.home",
+            "next": "home_bp.home",
+        },
+    }
     return render_template("mandanila.html", content=content)
 
 
