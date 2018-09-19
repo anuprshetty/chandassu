@@ -10,7 +10,14 @@ ragale_bp = Blueprint(
 
 @ragale_bp.route("/")
 def ragale():
-    content = {"title": "Ragale"}
+    content = {
+        "title": "Ragale",
+        "heading": "ರಗಳೆ",
+        "footer": {
+            "previous": "home_bp.home",
+            "next": "home_bp.home",
+        },
+    }
     return render_template("ragale.html", content=content)
 
 
