@@ -42,5 +42,12 @@ def mandanila():
 
 @ragale_bp.route("/lalita")
 def lalita():
-    content = {"title": "Lalita"}
+    content = {
+        "title": "Lalita",
+        "heading": "ಲಲಿತ ರಗಳೆ",
+        "footer": {
+            "previous": "home_bp.home",
+            "next": "home_bp.home",
+        },
+    }
     return render_template("lalita.html", content=content)
