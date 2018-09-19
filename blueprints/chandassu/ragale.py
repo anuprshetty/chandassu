@@ -14,10 +14,17 @@ def ragale():
     return render_template("ragale.html", content=content)
 
 
-@ragale_bp.route("/lalita")
-def lalita():
-    content = {"title": "Lalita"}
-    return render_template("lalita.html", content=content)
+@ragale_bp.route("/utsaha")
+def utsaha():
+    content = {
+        "title": "Utsaha",
+        "heading": "ಉತ್ಸಾಹ ರಗಳೆ",
+        "footer": {
+            "previous": "home_bp.home",
+            "next": "home_bp.home",
+        },
+    }
+    return render_template("utsaha.html", content=content)
 
 
 @ragale_bp.route("/mandanila")
@@ -26,7 +33,7 @@ def mandanila():
     return render_template("mandanila.html", content=content)
 
 
-@ragale_bp.route("/utsaha")
-def utsaha():
-    content = {"title": "Utsaha"}
-    return render_template("utsaha.html", content=content)
+@ragale_bp.route("/lalita")
+def lalita():
+    content = {"title": "Lalita"}
+    return render_template("lalita.html", content=content)
