@@ -29,7 +29,14 @@ def utpala_mala():
 
 @vrutta_bp.route("/champaka-mala")
 def champaka_mala():
-    content = {"title": "Champaka Mala"}
+    content = {
+        "title": "Champaka Mala",
+        "heading": "ಚಂಪಕಮಾಲಾ ವೃತ್ತ",
+        "footer": {
+            "previous": "home_bp.home",
+            "next": "home_bp.home",
+        },
+    }
     return render_template("champaka_mala.html", content=content)
 
 
