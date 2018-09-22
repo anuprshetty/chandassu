@@ -16,7 +16,14 @@ def vrutta():
 
 @vrutta_bp.route("/utpala-mala")
 def utpala_mala():
-    content = {"title": "Utpala Mala"}
+    content = {
+        "title": "Utpala Mala",
+        "heading": "ಉತ್ಪಲಮಾಲಾ ವೃತ್ತ",
+        "footer": {
+            "previous": "home_bp.home",
+            "next": "home_bp.home",
+        },
+    }
     return render_template("utpala_mala.html", content=content)
 
 
