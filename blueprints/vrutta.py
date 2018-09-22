@@ -42,7 +42,14 @@ def champaka_mala():
 
 @vrutta_bp.route("/shardula-vikreedita")
 def shardula_vikreedita():
-    content = {"title": "Shardula Vikreedita"}
+    content = {
+        "title": "Shardula Vikreedita",
+        "heading": "ಶಾರ್ದೂಲವಿಕ್ರೀಡಿತ ವೃತ್ತ",
+        "footer": {
+            "previous": "home_bp.home",
+            "next": "home_bp.home",
+        },
+    }
     return render_template("shardula_vikreedita.html", content=content)
 
 
