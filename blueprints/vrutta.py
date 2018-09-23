@@ -69,6 +69,14 @@ def mattebha_vikreedita():
 @vrutta_bp.route("/sragdhara")
 def sragdhara():
     content = {"title": "Sragdhara"}
+    content = {
+        "title": "Sragdhara",
+        "heading": "ಸ್ರಗ್ಧರಾ ವೃತ್ತ",
+        "footer": {
+            "previous": "home_bp.home",
+            "next": "home_bp.home",
+        },
+    }
     return render_template("sragdhara.html", content=content)
 
 
