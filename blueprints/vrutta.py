@@ -55,7 +55,14 @@ def shardula_vikreedita():
 
 @vrutta_bp.route("/mattebha-vikreedita")
 def mattebha_vikreedita():
-    content = {"title": "Mattebha Vikreedita"}
+    content = {
+        "title": "Mattebha Vikreedita",
+        "heading": "ಮತ್ತೇಭವಿಕ್ರೀಡಿತ ವೃತ್ತ",
+        "footer": {
+            "previous": "home_bp.home",
+            "next": "home_bp.home",
+        },
+    }
     return render_template("mattebha_vikreedita.html", content=content)
 
 
