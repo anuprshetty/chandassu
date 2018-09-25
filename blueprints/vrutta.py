@@ -10,7 +10,14 @@ vrutta_bp = Blueprint(
 
 @vrutta_bp.route("/")
 def vrutta():
-    content = {"title": "Vrutta"}
+    content = {
+        "title": "Vrutta",
+        "heading": "ಖ್ಯಾತಕರ್ಣಾಟಕ ವೃತ್ತಗಳು",
+        "footer": {
+            "previous": "home_bp.home",
+            "next": "home_bp.home",
+        },
+    }
     return render_template("vrutta.html", content=content)
 
 
