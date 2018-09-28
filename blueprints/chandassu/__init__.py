@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template
 from .shatpadi import shatpadi_bp
 from .ragale import ragale_bp
+from .vrutta import vrutta_bp
 
 chandassu_bp = Blueprint(
     "chandassu_bp",
@@ -11,6 +12,7 @@ chandassu_bp = Blueprint(
 
 chandassu_bp.register_blueprint(shatpadi_bp)
 chandassu_bp.register_blueprint(ragale_bp)
+chandassu_bp.register_blueprint(vrutta_bp)
 
 
 @chandassu_bp.route("/")

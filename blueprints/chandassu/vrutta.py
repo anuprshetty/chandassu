@@ -4,7 +4,7 @@ vrutta_bp = Blueprint(
     "vrutta_bp",
     __name__,
     url_prefix="vrutta",
-    template_folder="../templates/vrutta",
+    template_folder="../../templates/chandassu/vrutta",
 )
 
 
