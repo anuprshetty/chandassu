@@ -7,5 +7,12 @@ prasa_bp = Blueprint(
 
 @prasa_bp.route("/")
 def prasa():
-    content = {"title": "Prasa"}
+    content = {
+        "title": "Prasa",
+        "heading": "ಪ್ರಾಸ",
+        "footer": {
+            "previous": "home_bp.home",
+            "next": "home_bp.home",
+        },
+    }
     return render_template("prasa.html", content=content)
