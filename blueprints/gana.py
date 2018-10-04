@@ -13,7 +13,14 @@ def gana():
 
 @gana_bp.route("/matra-gana")
 def matra_gana():
-    content = {"title": "Matra Gana"}
+    content = {
+        "title": "Matra Gana",
+        "heading": "ಮಾತ್ರಾ ಗಣ",
+        "footer": {
+            "previous": "home_bp.home",
+            "next": "home_bp.home",
+        },
+    }
     return render_template("matra_gana.html", content=content)
 
 
