@@ -7,7 +7,14 @@ gana_bp = Blueprint(
 
 @gana_bp.route("/")
 def gana():
-    content = {"title": "Gana"}
+    content = {
+        "title": "Gana",
+        "heading": "ಗಣಗಳು",
+        "footer": {
+            "previous": "home_bp.home",
+            "next": "home_bp.home",
+        },
+    }
     return render_template("gana.html", content=content)
 
 
