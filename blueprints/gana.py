@@ -26,7 +26,14 @@ def matra_gana():
 
 @gana_bp.route("/akshara-gana")
 def akshara_gana():
-    content = {"title": "Akshara Gana"}
+    content = {
+        "title": "Akshara Gana",
+        "heading": "ಅಕ್ಷರ ಗಣ",
+        "footer": {
+            "previous": "home_bp.home",
+            "next": "home_bp.home",
+        },
+    }
     return render_template("akshara_gana.html", content=content)
 
 
