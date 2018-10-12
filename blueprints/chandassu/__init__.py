@@ -17,7 +17,14 @@ chandassu_bp.register_blueprint(vrutta_bp)
 
 @chandassu_bp.route("/")
 def chandassu():
-    content = {"title": "Chandassu"}
+    content = {
+        "title": "Chandassu",
+        "heading": "ಛಂದಸ್ಸು",
+        "footer": {
+            "previous": "home_bp.home",
+            "next": "home_bp.home",
+        },
+    }
     return render_template("chandassu.html", content=content)
 
 
