@@ -1,3 +1,17 @@
 <!DOCTYPE html> {% extends 'base.html' %} {% block body %}
-<h1>Test</h1>
+<form action="{{ url_for('home_bp.test_bp.result')}}" method="POST">
+  <div class="form-group">
+    <textarea
+      name="poem"
+      class="form-control form-text-size"
+      rows="8"
+      placeholder="ನಿಮ್ಮ ಪದ್ಯವನ್ನು ಇಲ್ಲಿ ಬರೆಯಿರಿ ..."
+    ></textarea>
+  </div>
+  <div class="form-group text-center">
+    <button type="submit" class="btn btn-primary form-text-size">
+      ಪರೀಕ್ಷಿಸು
+    </button>
+  </div>
+</form>
 {% endblock %}

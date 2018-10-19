@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, request
 
 test_bp = Blueprint(
     "test_bp", __name__, url_prefix="test", template_folder="../templates/test"
@@ -18,7 +18,7 @@ def test():
     return render_template("test.html", content=content)
 
 
-@test_bp.route("/result")
+@test_bp.route("/result", methods=["POST"])
 def result():
     content = {
         "title": "Result",
@@ -28,4 +28,7 @@ def result():
             "next": "home_bp.home",
         },
     }
+
+    poem = request.form.get("poem")
+    print(f"poem: {poem}")
     return render_template("result.html", content=content)
