@@ -52,3 +52,38 @@ class Poem:
 
         cls._poem_kannada_symbols = [list(poem_line) for poem_line in poem_lines]
 
+    @classmethod
+    def _form_kannada_letters(cls):
+        poem_letters = copy.deepcopy(cls._poem_kannada_symbols)
+
+        halant = Constant.kannada_symbols.get("halant")
+        alphabets = Constant.kannada_symbols.get("alphabets")
+
+        lines_count = len(poem_letters)
+        i = 0
+        while i < lines_count:
+            letters_count = len(poem_letters[i])
+            j = 0
+            while j < letters_count:
+                if poem_letters[i][j] == halant:
+                    if j + 1 == letters_count or poem_letters[i][j + 1] == " ":
+                        poem_letters[i][j - 1 : j + 1] = [
+                            "".join(poem_letters[i][j - 1 : j + 1])
+                        ]  # Ex: 'ಳ' + '್' = 'ಳ್'
+                        letters_count = letters_count - 1
+                    else:
+                        poem_letters[i][j - 1 : j + 2] = [
+                            "".join(poem_letters[i][j - 1 : j + 2])
+                        ]  # Ex: 'ಳ' + '್' + 'ದ' = 'ಳ್ದ'
+                        letters_count = letters_count - 2
+                elif poem_letters[i][j] in alphabets:
+                    poem_letters[i][j - 1 : j + 1] = [
+                        "".join(poem_letters[i][j - 1 : j + 1])
+                    ]  # Ex: 'ಷ' + ''ಂ' = 'ಷಂ'
+                    letters_count = letters_count - 1
+                else:
+                    j = j + 1
+
+            i = i + 1
+
+        cls._poem_kannada_letters = poem_letters
