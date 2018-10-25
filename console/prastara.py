@@ -146,3 +146,24 @@ class Prastara:
             cls._prastara_value.append(prastara_line)
             i = i + 1
 
+    @classmethod
+    def _form_prastara_symbol(cls):
+        cls._prastara_symbol = []
+
+        LAGHU_VALUE = Constant.prastara_info.get("laghu").get("value")
+        GURU_VALUE = Constant.prastara_info.get("guru").get("value")
+
+        SPACE_SYMBOL = Constant.prastara_info.get("space").get("symbol")
+        LAGHU_SYMBOL = Constant.prastara_info.get("laghu").get("symbol")
+        GURU_SYMBOL = Constant.prastara_info.get("guru").get("symbol")
+
+        for line_index, prastara_line in enumerate(cls._prastara_value):
+            cls._prastara_symbol.append([])
+            for value in prastara_line:
+                if value == LAGHU_VALUE:
+                    cls._prastara_symbol[line_index].append(LAGHU_SYMBOL)
+                elif value == GURU_VALUE:
+                    cls._prastara_symbol[line_index].append(GURU_SYMBOL)
+                else:
+                    cls._prastara_symbol[line_index].append(SPACE_SYMBOL)
+
