@@ -167,3 +167,9 @@ class Prastara:
                 else:
                     cls._prastara_symbol[line_index].append(SPACE_SYMBOL)
 
+    @classmethod
+    def _remove_space_value_from_prastara_value(cls):
+        cls._prastara_value = [
+            [value for value in prastara_line if value != 0]
+            for prastara_line in cls._prastara_value
+        ]
