@@ -38,6 +38,76 @@ class Chandassu:
 
 
     @classmethod
+    def _form_ganas(
+        cls,
+        first_alternative_matras_count,
+        second_alternative_matras_count,
+    ):
+        cls._poem_letters_ganas = []
+        cls._prastara_symbols_ganas = []
+
+        if len(cls._poem_letters) == 0 or len(cls._prastara_symbols) == 0:
+            return
+        elif len(cls._poem_letters) != len(cls._prastara_symbols):
+            return
+
+        LAGHU_SYMBOL = Constant.prastara_info.get("laghu").get("symbol")
+        GURU_SYMBOL = Constant.prastara_info.get("guru").get("symbol")
+
+        lines_count = len(cls._poem_letters)
+        i = 0
+        while i < lines_count:
+            cls._poem_letters_ganas.append([cls._gana_symbol])
+            cls._prastara_symbols_ganas.append([cls._gana_symbol])
+
+            letters_count = len(cls._poem_letters[i])
+
+            matras_count = first_alternative_matras_count
+            is_first_alternative_matras_count = True
+            current_matras_count = 0
+
+            j = 0
+            while j < letters_count:
+                poem_letter = cls._poem_letters[i][j]
+                prastara_symbol = cls._prastara_symbols[i][j]
+
+                cls._poem_letters_ganas[i].append(poem_letter)
+                cls._prastara_symbols_ganas[i].append(prastara_symbol)
+
+                if prastara_symbol == LAGHU_SYMBOL:
+                    current_matras_count += 1
+                elif prastara_symbol == GURU_SYMBOL:
+                    current_matras_count += 2
+
+                if current_matras_count != matras_count:
+                    j = j + 1
+                    continue
+
+                cls._poem_letters_ganas[i].append(cls._gana_symbol)
+                cls._prastara_symbols_ganas[i].append(cls._gana_symbol)
+
+                current_matras_count = 0
+
+                if is_first_alternative_matras_count:
+                    matras_count = second_alternative_matras_count
+                    is_first_alternative_matras_count = False
+                else:
+                    matras_count = first_alternative_matras_count
+                    is_first_alternative_matras_count = True
+
+                j = j + 1
+
+            if cls._prastara_symbols_ganas[i][-1] != cls._gana_symbol:
+                cls._poem_letters_ganas[i].append(cls._gana_symbol)
+                cls._prastara_symbols_ganas[i].append(cls._gana_symbol)
+
+            i = i + 1
+
+    @classmethod
+    def identified(cls):
+        raise NotImplementedError
+
+    @classmethod
     def _pattern_matched(
         cls,
         total_ganas_per_short_line,
