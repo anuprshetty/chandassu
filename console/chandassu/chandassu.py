@@ -36,6 +36,23 @@ class Chandassu:
 
         return cls._poem_chandassu
 
+    @classmethod
+    def _form_poem_chandassu(cls):
+        cls._poem_chandassu = ""
+
+        if len(cls._poem_letters_ganas) == 0 or len(cls._prastara_symbols_ganas) == 0:
+            return
+        elif len(cls._poem_letters_ganas) != len(cls._prastara_symbols_ganas):
+            return
+
+        lines_count = len(cls._poem_letters_ganas)
+        for i in range(0, lines_count):
+            cls._poem_chandassu += (
+                "".join(cls._prastara_symbols_ganas[i])
+                + "\n"
+                + "".join(cls._poem_letters_ganas[i])
+                + "\n"
+            )
 
     @classmethod
     def _form_ganas(
