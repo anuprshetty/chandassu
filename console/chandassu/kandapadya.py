@@ -51,3 +51,43 @@ class Kandapadya(Chandassu):
         else:
             return False
 
+    @classmethod
+    def _special_conditions_met(cls):
+        matras = []
+        gana = ""
+        current_gana = 0
+
+        lines_count = len(cls._prastara_values)
+        i = 0
+        while i < lines_count:
+            prastara_count = len(cls._prastara_values[i])
+            j = 0
+            while j < prastara_count:
+                matras.append(cls._prastara_values[i][j])
+                gana = gana + str(cls._prastara_values[i][j])
+
+                if sum(matras) != cls._matras_count:
+                    j = j + 1
+                    continue
+
+                current_gana = current_gana + 1
+
+                if (current_gana == 6 or current_gana == 14) and (
+                    gana != "1111" and gana != "121"
+                ):
+                    return False
+                if (current_gana == 8 or current_gana == 16) and (
+                    gana != "22" and gana != "112"
+                ):
+                    return False
+                if ((current_gana % 2) != 0) and (gana == cls._gana_should_not_occur):
+                    return False
+
+                matras = []
+                gana = ""
+
+                j = j + 1
+
+            i = i + 1
+
+        return True
