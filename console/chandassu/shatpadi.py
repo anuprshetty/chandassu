@@ -78,3 +78,55 @@ class Shatpadi(Chandassu):
         else:
             return False
 
+    @classmethod
+    def _special_conditions_met(cls):
+        if cls._gana_should_not_occur_1 == "" or cls._gana_should_not_occur_2 == "":
+            return True
+
+        matras = []
+        gana = ""
+
+        lines_count = len(cls._prastara_values)
+        i = 0
+        while i < lines_count:
+            matras_count = cls._first_alternative_matras_count
+            is_first_alternative_matras_count = True
+
+            prastara_count = len(cls._prastara_values[i])
+            if (
+                i == 2 or i == 5
+            ):  # if shatpadi line is a long line (i.e., at line index 2 and 5), then there will always be an extra_guru at the end of the line.
+                prastara_count = prastara_count - 1
+
+            j = 0
+            while j < prastara_count:
+                matras.append(cls._prastara_values[i][j])
+                gana = gana + str(cls._prastara_values[i][j])
+
+                if sum(matras) != matras_count:
+                    j = j + 1
+                    continue
+
+                if (
+                    gana == cls._gana_should_not_occur_1
+                    or gana == cls._gana_should_not_occur_2
+                ):
+                    return False
+
+                if is_first_alternative_matras_count:
+                    matras_count = cls._second_alternative_matras_count
+                    is_first_alternative_matras_count = False
+                else:
+                    matras_count = cls._first_alternative_matras_count
+                    is_first_alternative_matras_count = True
+
+                matras = []
+                gana = ""
+
+                j = j + 1
+
+            i = i + 1
+
+        return True
+
+
