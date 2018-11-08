@@ -130,3 +130,79 @@ class Shatpadi(Chandassu):
         return True
 
 
+class Shara(Shatpadi):
+    _name = Constant.chandassu_names.get("shatpadi").get("shara")
+
+    _total_ganas_per_short_line = 2
+    _total_ganas_per_long_line = 3
+
+    _first_alternative_matras_count = 4
+    _second_alternative_matras_count = 4
+
+    _gana_should_not_occur_1 = "121"
+    _gana_should_not_occur_2 = "121"
+
+
+class Kusuma(Shatpadi):
+    _name = Constant.chandassu_names.get("shatpadi").get("kusuma")
+
+    _total_ganas_per_short_line = 2
+    _total_ganas_per_long_line = 3
+
+    _first_alternative_matras_count = 5
+    _second_alternative_matras_count = 5
+
+    _gana_should_not_occur_1 = "1211"
+    _gana_should_not_occur_2 = "122"
+
+
+class Bhoga(Shatpadi):
+    _name = Constant.chandassu_names.get("shatpadi").get("bhoga")
+
+    _total_ganas_per_short_line = 4
+    _total_ganas_per_long_line = 6
+
+    _first_alternative_matras_count = 3
+    _second_alternative_matras_count = 3
+
+    _gana_should_not_occur_1 = "12"
+    _gana_should_not_occur_2 = "12"
+
+
+class Bhamini(Shatpadi):
+    _name = Constant.chandassu_names.get("shatpadi").get("bhamini")
+
+    _total_ganas_per_short_line = 4
+    _total_ganas_per_long_line = 6
+
+    _first_alternative_matras_count = 3
+    _second_alternative_matras_count = 4
+
+    _gana_should_not_occur_1 = "12"
+    _gana_should_not_occur_2 = "121"
+
+
+class Vardhaka(Shatpadi):
+    _name = Constant.chandassu_names.get("shatpadi").get("vardhaka")
+
+    _total_ganas_per_short_line = 4
+    _total_ganas_per_long_line = 6
+
+    _first_alternative_matras_count = 5
+    _second_alternative_matras_count = 5
+
+    _gana_should_not_occur_1 = "1211"
+    _gana_should_not_occur_2 = "122"
+
+
+class Parivardhini(Shatpadi):
+    _name = Constant.chandassu_names.get("shatpadi").get("parivardhini")
+
+    _total_ganas_per_short_line = 4
+    _total_ganas_per_long_line = 6
+
+    _first_alternative_matras_count = 4
+    _second_alternative_matras_count = 4
+
+    _gana_should_not_occur_1 = "121"
+    _gana_should_not_occur_2 = "121"
