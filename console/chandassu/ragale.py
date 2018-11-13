@@ -44,3 +44,34 @@ class Ragale(Chandassu):
 
         return False
 
+    @classmethod
+    def _check_for(cls, scenario):
+        total_matras_per_line = scenario.get("total_matras_per_line")
+        total_ganas_per_line = scenario.get("total_ganas_per_line")
+        first_alternative_matras_count = scenario.get("first_alternative_matras_count")
+        second_alternative_matras_count = scenario.get(
+            "second_alternative_matras_count"
+        )
+        has_extra_guru = scenario.get("has_extra_guru")
+
+        for prastara_line in cls._prastara_values:
+            if sum(prastara_line) != total_matras_per_line:
+                return False
+
+        if not cls._pattern_matched(
+            total_ganas_per_line,
+            total_ganas_per_line,
+            first_alternative_matras_count,
+            second_alternative_matras_count,
+            first_long_line_index=-1,
+            last_long_line_index=-1,
+            has_extra_guru=has_extra_guru,
+        ):
+            return False
+
+        return cls._special_conditions_met(
+            first_alternative_matras_count,
+            second_alternative_matras_count,
+            has_extra_guru=has_extra_guru,
+        )
+
