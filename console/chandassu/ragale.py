@@ -75,3 +75,58 @@ class Ragale(Chandassu):
             has_extra_guru=has_extra_guru,
         )
 
+    @classmethod
+    def _special_conditions_met(
+        cls,
+        first_alternative_matras_count,
+        second_alternative_matras_count,
+        has_extra_guru,
+    ):
+        if cls._gana_should_not_occur_1 == "" or cls._gana_should_not_occur_2 == "":
+            return True
+
+        matras = []
+        gana = ""
+
+        lines_count = len(cls._prastara_values)
+        i = 0
+        while i < lines_count:
+            matras_count = first_alternative_matras_count
+            is_first_alternative_matras_count = True
+
+            prastara_count = len(cls._prastara_values[i])
+            if has_extra_guru:
+                prastara_count = prastara_count - 1
+
+            j = 0
+            while j < prastara_count:
+                matras.append(cls._prastara_values[i][j])
+                gana = gana + str(cls._prastara_values[i][j])
+
+                if sum(matras) != matras_count:
+                    j = j + 1
+                    continue
+
+                if (
+                    gana == cls._gana_should_not_occur_1
+                    or gana == cls._gana_should_not_occur_2
+                ):
+                    return False
+
+                if is_first_alternative_matras_count:
+                    matras_count = second_alternative_matras_count
+                    is_first_alternative_matras_count = False
+                else:
+                    matras_count = first_alternative_matras_count
+                    is_first_alternative_matras_count = True
+
+                matras = []
+                gana = ""
+
+                j = j + 1
+
+            i = i + 1
+
+        return True
+
+
