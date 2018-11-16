@@ -130,3 +130,33 @@ class Ragale(Chandassu):
         return True
 
 
+class Utsaha(Ragale):
+    _name = Constant.chandassu_names.get("ragale").get("utsaha")
+
+    _scenarios = [
+        {
+            "total_matras_per_line": 24,
+            "total_ganas_per_line": 8,
+            "first_alternative_matras_count": 3,
+            "second_alternative_matras_count": 3,
+            "has_extra_guru": False,
+        },
+        {
+            "total_matras_per_line": 12,
+            "total_ganas_per_line": 4,
+            "first_alternative_matras_count": 3,
+            "second_alternative_matras_count": 3,
+            "has_extra_guru": False,
+        },
+        {
+            "total_matras_per_line": 11,
+            "total_ganas_per_line": 3,
+            "first_alternative_matras_count": 3,
+            "second_alternative_matras_count": 3,
+            "has_extra_guru": True,
+        },
+    ]
+
+    _gana_should_not_occur_1 = "12"
+    _gana_should_not_occur_2 = "12"
+
