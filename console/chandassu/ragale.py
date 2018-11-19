@@ -185,3 +185,18 @@ class Mandanila(Ragale):
     _gana_should_not_occur_2 = "12"
 
 
+class Lalita(Ragale):
+    _name = Constant.chandassu_names.get("ragale").get("lalita")
+
+    _scenarios = [
+        {
+            "total_matras_per_line": 20,
+            "total_ganas_per_line": 4,
+            "first_alternative_matras_count": 5,
+            "second_alternative_matras_count": 5,
+            "has_extra_guru": False,
+        }
+    ]
+
+    _gana_should_not_occur_1 = "1211"
+    _gana_should_not_occur_2 = "122"
