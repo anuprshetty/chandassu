@@ -27,3 +27,56 @@ class Vrutta(Chandassu):
         else:
             return False
 
+    @classmethod
+    def _form_ganas(cls):
+        cls._poem_letters_ganas = []
+        cls._prastara_symbols_ganas = []
+
+        if len(cls._poem_letters) == 0 or len(cls._prastara_symbols) == 0:
+            return
+        elif len(cls._poem_letters) != len(cls._prastara_symbols):
+            return
+
+        LAGHU_SYMBOL = Constant.prastara_info.get("laghu").get("symbol")
+        GURU_SYMBOL = Constant.prastara_info.get("guru").get("symbol")
+
+        lines_count = len(cls._poem_letters)
+        i = 0
+        while i < lines_count:
+            cls._poem_letters_ganas.append([cls._gana_symbol])
+            cls._prastara_symbols_ganas.append([cls._gana_symbol])
+
+            letters_count = len(cls._poem_letters[i])
+
+            aksharas_count = 3
+            current_aksharas_count = 0
+
+            j = 0
+            while j < letters_count:
+                poem_letter = cls._poem_letters[i][j]
+                prastara_symbol = cls._prastara_symbols[i][j]
+
+                cls._poem_letters_ganas[i].append(poem_letter)
+                cls._prastara_symbols_ganas[i].append(prastara_symbol)
+
+                if prastara_symbol == LAGHU_SYMBOL or prastara_symbol == GURU_SYMBOL:
+                    current_aksharas_count += 1
+
+                if current_aksharas_count != aksharas_count:
+                    j = j + 1
+                    continue
+
+                cls._poem_letters_ganas[i].append(cls._gana_symbol)
+                cls._prastara_symbols_ganas[i].append(cls._gana_symbol)
+
+                current_aksharas_count = 0
+
+                j = j + 1
+
+            if cls._prastara_symbols_ganas[i][-1] != cls._gana_symbol:
+                cls._poem_letters_ganas[i].append(cls._gana_symbol)
+                cls._prastara_symbols_ganas[i].append(cls._gana_symbol)
+
+            i = i + 1
+
+
