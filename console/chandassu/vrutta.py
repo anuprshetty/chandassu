@@ -80,3 +80,31 @@ class Vrutta(Chandassu):
             i = i + 1
 
 
+class UtpalaMala(Vrutta):
+    _name = Constant.chandassu_names.get("vrutta").get("utpala_mala")
+    _line_pattern = "21121211121121121212"
+
+
+class ChampakaMala(Vrutta):
+    _name = Constant.chandassu_names.get("vrutta").get("champaka_mala")
+    _line_pattern = "111121211121121121212"
+
+
+class ShardulaVikreedita(Vrutta):
+    _name = Constant.chandassu_names.get("vrutta").get("shardula_vikreedita")
+    _line_pattern = "2221121211122212212"
+
+
+class MattebhaVikreedita(Vrutta):
+    _name = Constant.chandassu_names.get("vrutta").get("mattebha_vikreedita")
+    _line_pattern = "11221121211122212212"
+
+
+class Sragdhara(Vrutta):
+    _name = Constant.chandassu_names.get("vrutta").get("sragdhara")
+    _line_pattern = "222212211111122122122"
+
+
+class MahaSragdhara(Vrutta):
+    _name = Constant.chandassu_names.get("vrutta").get("maha_sragdhara")
+    _line_pattern = "1122212211111122122122"
