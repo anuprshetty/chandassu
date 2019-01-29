@@ -23,3 +23,19 @@ class ChandassuType:
         return chandassu_type
 
 
+
+
+def main():
+    input_poem_file_path = os.path.join(
+        os.path.dirname(__file__), "input_kannada_poem.txt"
+    )
+    with open(input_poem_file_path, "r") as input_poem_fd:
+        input_poem = input_poem_fd.read()
+
+    chandassu_type = ChandassuType.get_chandassu_type(input_poem)
+
+    form_output(chandassu_type)
+
+
+if __name__ == "__main__":
+    main()
