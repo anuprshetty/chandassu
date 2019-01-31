@@ -23,6 +23,17 @@ class ChandassuType:
         return chandassu_type
 
 
+def form_output(chandassu_type):
+    write_output_to_file(chandassu_type)
+
+    write_output_to_console(chandassu_type)
+
+
+def write_output_to_console(chandassu_type):
+    print(f"Chandassu Name: {chandassu_type.name()}")
+    print(f"Chandassu Info: \n{chandassu_type.poem_chandassu()}")
+
+
 
 
 def main():
