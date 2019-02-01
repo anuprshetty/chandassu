@@ -34,6 +34,28 @@ def write_output_to_console(chandassu_type):
     print(f"Chandassu Info: \n{chandassu_type.poem_chandassu()}")
 
 
+def write_output_to_file(chandassu_type):
+    output_folder_name = "output"
+
+    chandassu_name_file_name = "chandassu_name.txt"
+    poem_chandassu_file_name = "poem_chandassu.txt"
+
+    output_folder_path = os.path.join(os.path.dirname(__file__), output_folder_name)
+
+    if not os.path.exists(output_folder_path):
+        os.makedirs(output_folder_path)
+
+    chandassu_name_file_path = os.path.join(
+        output_folder_path, chandassu_name_file_name
+    )
+    with open(chandassu_name_file_path, "w") as chandassu_name_fd:
+        chandassu_name_fd.write(chandassu_type.name())
+
+    poem_chandassu_file_path = os.path.join(
+        output_folder_path, poem_chandassu_file_name
+    )
+    with open(poem_chandassu_file_path, "w") as poem_chandassu_fd:
+        poem_chandassu_fd.write(chandassu_type.poem_chandassu())
 
 
 def main():
