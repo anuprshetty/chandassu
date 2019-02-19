@@ -1,8 +1,8 @@
 import unittest
 import os
 import re
-from app import ChandassuType
-from constant import Constant
+from main import ChandassuType
+from utils.constant import Constant
 
 
 class TestChandassuType(unittest.TestCase):

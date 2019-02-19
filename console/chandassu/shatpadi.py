@@ -1,5 +1,5 @@
 from .chandassu import Chandassu
-from constant import Constant
+from utils.constant import Constant
 
 
 class Shatpadi(Chandassu):

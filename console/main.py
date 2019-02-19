@@ -1,7 +1,7 @@
 import os
-from poem import Poem
-from prastara import Prastara
-from chandassu_identifier import ChandassuIdentifier
+from features.poem import Poem
+from features.prastara import Prastara
+from features.chandassu_identifier import ChandassuIdentifier
 
 
 class ChandassuType:
