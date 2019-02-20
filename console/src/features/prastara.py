@@ -1,4 +1,4 @@
-from utils.constant import Constant
+from ..utils.constant import Constant
 
 
 class Prastara:

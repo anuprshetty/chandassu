@@ -1,4 +1,4 @@
-from chandassu import chandassu_types
+from ..chandassu import chandassu_types
 
 
 class ChandassuIdentifier:
