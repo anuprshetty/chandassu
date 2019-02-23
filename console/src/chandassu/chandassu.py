@@ -74,8 +74,15 @@ class Chandassu:
         lines_count = len(cls._poem_letters)
         i = 0
         while i < lines_count:
-            cls._poem_letters_ganas.append([cls._gana_symbol])
-            cls._prastara_symbols_ganas.append([cls._gana_symbol])
+            cls._poem_letters_ganas.append([])
+            cls._prastara_symbols_ganas.append([])
+
+            if (
+                first_alternative_matras_count != -1
+                and second_alternative_matras_count != -1
+            ):
+                cls._poem_letters_ganas[i].append(cls._gana_symbol)
+                cls._prastara_symbols_ganas[i].append(cls._gana_symbol)
 
             letters_count = len(cls._poem_letters[i])
 
@@ -114,9 +121,13 @@ class Chandassu:
 
                 j = j + 1
 
-            if cls._prastara_symbols_ganas[i][-1] != cls._gana_symbol:
-                cls._poem_letters_ganas[i].append(cls._gana_symbol)
-                cls._prastara_symbols_ganas[i].append(cls._gana_symbol)
+            if (
+                first_alternative_matras_count != -1
+                and second_alternative_matras_count != -1
+            ):
+                if cls._prastara_symbols_ganas[i][-1] != cls._gana_symbol:
+                    cls._poem_letters_ganas[i].append(cls._gana_symbol)
+                    cls._prastara_symbols_ganas[i].append(cls._gana_symbol)
 
             i = i + 1
 
