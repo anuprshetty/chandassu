@@ -70,10 +70,15 @@ class Shatpadi(Chandassu):
             return False
 
         if cls._special_conditions_met():
+            GURU_SYMBOL = Constant.prastara_info.get("guru").get("symbol")
+            cls._prastara_symbols[cls._first_long_line_index][-1] = GURU_SYMBOL
+            cls._prastara_symbols[cls._last_long_line_index][-1] = GURU_SYMBOL
+
             cls._form_ganas(
                 cls._first_alternative_matras_count,
                 cls._second_alternative_matras_count,
             )
+
             return True
         else:
             return False

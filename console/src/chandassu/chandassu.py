@@ -3,7 +3,7 @@ from ..utils.constant import Constant
 
 class Chandassu:
     _name = Constant.chandassu_names.get("chandassu")
-    _gana_symbol = "|"
+    _gana_symbol = Constant.gana_symbol
 
     _poem_letters = []
     _prastara_symbols = []
