@@ -111,5 +111,5 @@ class Constant:
             "sragdhara": "ಸ್ರಗ್ಧರಾ ವೃತ್ತ",
             "maha_sragdhara": "ಮಹಾಸ್ರಗ್ಧರಾ ವೃತ್ತ",
         },
-        "invalid": "",
+        "invalid": "ಈ ಪದ್ಯವು ಯಾವ ಛಂದಸ್ಸಿಗೂ ಸೇರಿಲ್ಲ.",
     }
