@@ -79,7 +79,7 @@ class Constant:
 
     prastara_info = {
         "space": {"symbol": " ", "value": 0},
-        "laghu": {"symbol": "U ", "value": 1},
+        "laghu": {"symbol": "U", "value": 1},
         "guru": {"symbol": "_ ", "value": 2},
     }
     gana_symbol = "|"

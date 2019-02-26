@@ -1,3 +1,10 @@
-<!DOCTYPE html> {% extends 'base.html' %} {% block body %}
-<h1>Result</h1>
+<!DOCTYPE html> {% extends 'base.html' %} {% block body %}{% macro mark_symbol()
+%}{% if content.chandassu_type.invalid %}<span class="wrong-mark">&#x2717;</span
+>{% else %}<span class="right-mark">&#x2713;</span>{% endif %} {% endmacro %}
+
+<pre class="pre-wrap">{{ mark_symbol() }}{{ content.chandassu_type.name }}</pre>
+
+<pre class="pre-wrap poem_chandassu">
+{{ content.chandassu_type.poem_chandassu }}</pre
+>
 {% endblock %}

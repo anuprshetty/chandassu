@@ -7,7 +7,10 @@ class Invalid(Chandassu):
 
     @classmethod
     def identified(cls):
+        cls._invalid = True
+
         cls._form_ganas(
             first_alternative_matras_count=-1, second_alternative_matras_count=-1
         )
+
         return True

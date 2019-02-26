@@ -3,6 +3,7 @@ from ..utils.constant import Constant
 
 class Chandassu:
     _name = Constant.chandassu_names.get("chandassu")
+    _invalid = False
     _gana_symbol = Constant.gana_symbol
 
     _poem_letters = []
@@ -37,6 +38,10 @@ class Chandassu:
         return cls._poem_chandassu
 
     @classmethod
+    def invalid(cls):
+        return cls._invalid
+
+    @classmethod
     def _form_poem_chandassu(cls):
         cls._poem_chandassu = ""
 
@@ -51,7 +56,7 @@ class Chandassu:
                 "".join(cls._prastara_symbols_ganas[i])
                 + "\n"
                 + "".join(cls._poem_letters_ganas[i])
-                + "\n"
+                + "\n\n"
             )
 
     @classmethod

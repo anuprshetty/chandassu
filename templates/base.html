@@ -50,6 +50,16 @@
       .form-text-size {
         font-size: 150%;
       }
+
+      .right-mark {
+        font-size: 50px;
+        color: green;
+      }
+
+      .wrong-mark {
+        font-size: 50px;
+        color: red;
+      }
     </style>
   </head>
   <body>
@@ -80,6 +90,20 @@
           $(this).find(".dropdown-menu").hide();
           $(this).find(".dropdown-submenu .show").removeClass("show");
         });
+
+        const $poemChandassuPreTag = $(".poem_chandassu");
+        let poemChandassuContent = $poemChandassuPreTag.text();
+
+        poemChandassuContent = poemChandassuContent.replace(
+          /\|/g,
+          '<span style="color: #b505f5">|</span>'
+        );
+        poemChandassuContent = poemChandassuContent.replace(
+          /[U_]/g,
+          '<span style="color: blue">$&</span>'
+        );
+
+        $poemChandassuPreTag.html(poemChandassuContent);
       });
     </script>
   </body>
