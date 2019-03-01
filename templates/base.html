@@ -60,6 +60,13 @@
         font-size: 50px;
         color: red;
       }
+
+      .text-size {
+        font-size: 200%;
+        font-weight: bold;
+        font-style: italic;
+        color: blue;
+      }
     </style>
   </head>
   <body>
@@ -91,19 +98,21 @@
           $(this).find(".dropdown-submenu .show").removeClass("show");
         });
 
-        const $poemChandassuPreTag = $(".poem_chandassu");
-        let poemChandassuContent = $poemChandassuPreTag.text();
+        const $poemChandassuPreTags = $(".poem-chandassu");
+        $poemChandassuPreTags.each(function (index, poemChandassuPreTag) {
+          let poemChandassuContent = $(poemChandassuPreTag).text();
 
-        poemChandassuContent = poemChandassuContent.replace(
-          /\|/g,
-          '<span style="color: #b505f5">|</span>'
-        );
-        poemChandassuContent = poemChandassuContent.replace(
-          /[U_]/g,
-          '<span style="color: blue">$&</span>'
-        );
+          poemChandassuContent = poemChandassuContent.replace(
+            /\|/g,
+            '<span style="color: #b505f5">|</span>'
+          );
+          poemChandassuContent = poemChandassuContent.replace(
+            /[U_]/g,
+            '<span style="color: blue">$&</span>'
+          );
 
-        $poemChandassuPreTag.html(poemChandassuContent);
+          $(poemChandassuPreTag).html(poemChandassuContent);
+        });
       });
     </script>
   </body>
