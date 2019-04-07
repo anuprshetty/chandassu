@@ -40,4 +40,4 @@ def result():
         },
     }
 
-    return render_template("result.html", content=content)
+    return render_template("test_result.html", content=content)
