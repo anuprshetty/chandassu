@@ -1,11 +1,16 @@
 <!DOCTYPE html>
+{% if content.footer.previous or content.footer.next %}
 <div class="panel-footer">
   <ul class="pager">
+    {% if content.footer.previous %}
     <li class="previous">
       <a href="{{ url_for(content.footer.previous)}}">ಹಿಂದಿನ ಪುಟ</a>
     </li>
+    {% endif %} {% if content.footer.next %}
     <li class="next">
       <a href="{{ url_for(content.footer.next)}}">ಮುಂದಿನ ಪುಟ</a>
     </li>
+    {% endif %}
   </ul>
 </div>
+{% endif %}

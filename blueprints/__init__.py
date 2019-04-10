@@ -18,11 +18,25 @@ home_bp.register_blueprint(practice_bp)
 
 @home_bp.route("/")
 def home():
-    content = {"title": "Home"}
+    content = {
+        "title": "Home",
+        "heading": "",
+        "footer": {
+            "previous": "",
+            "next": "",
+        },
+    }
     return render_template("home.html", content=content)
 
 
 @home_bp.route("/about")
 def about():
-    content = {"title": "About"}
+    content = {
+        "title": "About",
+        "heading": "ಸೃಷ್ಟಿಕರ್ತ",
+        "footer": {
+            "previous": "",
+            "next": "",
+        },
+    }
     return render_template("about.html", content=content)
