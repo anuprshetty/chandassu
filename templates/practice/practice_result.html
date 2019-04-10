@@ -1,0 +1,21 @@
+<!DOCTYPE html> {% extends 'base.html' %} {% block body %}{% macro mark_symbol()
+%}{% if content.original_poem_info.invalid %}<span class="wrong-mark"
+  >&#x2717;</span
+>{% else %}<span class="right-mark">&#x2713;</span>{% endif %} {% endmacro %}
+
+<h4 class="text-size">ಸರಿಯಾದ ಉತ್ತರ :</h4>
+<pre class="pre-wrap">
+{{ mark_symbol() }}{{ content.original_poem_info.name }}</pre
+>
+<pre class="pre-wrap poem-chandassu col-flex-height">
+{{ content.original_poem_info.poem_chandassu }}</pre
+>
+
+<br />
+<h4 class="text-size">ನಿಮ್ಮ ಉತ್ತರ :</h4>
+<pre class="pre-wrap">{{ content.practice_poem_info.name }}</pre>
+<pre class="pre-wrap poem-chandassu col-flex-height">
+{{ content.practice_poem_info.poem_chandassu }}</pre
+>
+
+{% endblock %}

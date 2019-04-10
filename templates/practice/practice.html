@@ -1,0 +1,48 @@
+<!DOCTYPE html> {% extends 'base.html' %} {% block body %}
+<form action="{{ url_for('home_bp.practice_bp.result')}}" method="POST">
+  <div class="form-group">
+    <input
+      type="hidden"
+      name="original_poem"
+      value="{{ content.poems.original_poem }}"
+    />
+    <label for="practice_poem" class="form-text-size"
+      >ಈ ಕೆಳಗಿನ ಪದ್ಯಕ್ಕೆ ಪ್ರಸ್ತಾರವನ್ನು ಹಾಕಿ, ಗಣ ವಿಂಗಡಣೆ ಮಾಡಿ, ಛಂದಸ್ಸನ್ನು
+      ಗುರುತಿಸಿ.</label
+    >
+    <textarea
+      name="practice_poem"
+      class="form-control form-text-size"
+      rows="{{ content.practice_poem_lines_count }}"
+    >
+{{ content.poems.practice_poem }}</textarea
+    >
+  </div>
+  <div class="form-group row">
+    <label
+      for="selected_chandassu_name"
+      class="form-text-size col-sm-3 col-form-label"
+      >ಈ ಪದ್ಯದ ಛಂದಸ್ಸು ಯಾವುದು?</label
+    >
+    <div class="col-sm-3">
+      <select
+        name="selected_chandassu_name"
+        id="selected_chandassu_name"
+        class="form-control"
+        style="font-size: 120%"
+      >
+        {% for chandassu_kannada_name in content.chandassu_kannada_names %}
+        <option value="{{ chandassu_kannada_name }}" style="text-align: center">
+          {{ chandassu_kannada_name }}
+        </option>
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+  <div class="form-group text-center">
+    <button type="submit" class="btn btn-primary form-text-size">
+      ಪರಿಶೀಲಿಸು
+    </button>
+  </div>
+</form>
+{% endblock %}
