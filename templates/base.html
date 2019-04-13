@@ -13,6 +13,45 @@
         background-color: #d3d3d3;
       }
 
+      .banner {
+        background-image: url("{{ url_for('static', filename='images/mysuru_palace.jpg') }}");
+        background-size: 100% 725%;
+      }
+
+      .home-kannada-chandassu-text {
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-weight: 900;
+        font-size: 500%;
+        color: darkblue;
+      }
+      .home-welcome-text {
+        position: absolute;
+        top: 33%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-weight: 500;
+        font-size: 450%;
+        color: darkblue;
+      }
+      .home-getting-started-text {
+        position: absolute;
+        top: 90%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-weight: 500;
+        font-size: 250%;
+        color: white;
+        background-color: darkgreen;
+      }
+      .home-getting-started-text:hover,
+      .home-getting-started-text:active {
+        color: darkgreen;
+        background-color: white;
+      }
+
       .container {
         width: 100%;
         max-width: 100%;
@@ -69,8 +108,9 @@
       }
     </style>
   </head>
-  <body>
-    {% include 'includes/header.html' %}
+  <body class="{% if content.title == 'Home' %}banner{% endif %}">
+    {% include 'includes/header.html' %} {% if content.title == 'Home' %} {%
+    include 'includes/home.html' %} {% else %}
     <div class="container">
       <div class="panel panel-primary">
         {% if content.heading %}
@@ -85,6 +125,7 @@
         </div>
       </div>
     </div>
+    {% endif %}
     <script src="{{url_for('static',filename='bootstrap/js/jquery.min.js')}}"></script>
     <script src="{{url_for('static',filename='bootstrap/js/bootstrap.min.js')}}"></script>
     <script>

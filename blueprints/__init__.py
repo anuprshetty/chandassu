@@ -26,7 +26,7 @@ def home():
             "next": "",
         },
     }
-    return render_template("home.html", content=content)
+    return render_template("base.html", content=content)
 
 
 @home_bp.route("/about")
