@@ -1,204 +1,147 @@
 <!DOCTYPE html>
+{% set headers = [ {"name": "ಕನ್ನಡ ಛಂದಸ್ಸು", "url": "home_bp.home", "color":
+"red"}, { "name": "ಛಂದಸ್ಸು", "headers": [ {"name": "ಛಂದಸ್ಸು", "url":
+"home_bp.chandassu_bp.chandassu"}, {"is_separator": True}, {"name": "ಪ್ರಾಸ",
+"url": "home_bp.prasa_bp.prasa"}, {"name": "ಯತಿ", "url":
+"home_bp.yati_bp.yati"}, {"name": "ಗಣ", "url": "home_bp.gana_bp.gana"},
+{"is_separator": True}, {"name": "ಕಂದ ಪದ್ಯ", "url":
+"home_bp.chandassu_bp.kandapadya"}, { "name": "ಷಟ್ಪದಿ", "headers": [ { "name":
+"ಷಟ್ಪದಿ", "url": "home_bp.chandassu_bp.shatpadi_bp.shatpadi", },
+{"is_separator": True}, { "name": "ಶರ", "url":
+"home_bp.chandassu_bp.shatpadi_bp.shara", }, { "name": "ಕುಸುಮ", "url":
+"home_bp.chandassu_bp.shatpadi_bp.kusuma", }, { "name": "ಭೋಗ", "url":
+"home_bp.chandassu_bp.shatpadi_bp.bhoga", }, { "name": "ಭಾಮಿನೀ", "url":
+"home_bp.chandassu_bp.shatpadi_bp.bhamini", }, { "name": "ವಾರ್ಧಕ", "url":
+"home_bp.chandassu_bp.shatpadi_bp.vardhaka", }, { "name": "ಪರಿವರ್ಧಿನೀ", "url":
+"home_bp.chandassu_bp.shatpadi_bp.parivardhini", }, ], }, { "name": "ರಗಳೆ",
+"headers": [ { "name": "ರಗಳೆ", "url": "home_bp.chandassu_bp.ragale_bp.ragale",
+}, {"is_separator": True}, { "name": "ಉತ್ಸಾಹ", "url":
+"home_bp.chandassu_bp.ragale_bp.utsaha", }, { "name": "ಮಂದಾನಿಲ", "url":
+"home_bp.chandassu_bp.ragale_bp.mandanila", }, { "name": "ಲಲಿತ", "url":
+"home_bp.chandassu_bp.ragale_bp.lalita", }, ], }, { "name": "ವೃತ್ತ", "headers":
+[ { "name": "ವೃತ್ತ", "url": "home_bp.chandassu_bp.vrutta_bp.vrutta", },
+{"is_separator": True}, { "name": "ಉತ್ಪಲಮಾಲಾ", "url":
+"home_bp.chandassu_bp.vrutta_bp.utpala_mala", }, { "name": "ಚಂಪಕಮಾಲಾ", "url":
+"home_bp.chandassu_bp.vrutta_bp.champaka_mala", }, { "name": "ಶಾರ್ದೂಲವಿಕ್ರೀಡಿತ",
+"url": "home_bp.chandassu_bp.vrutta_bp.shardula_vikreedita", }, { "name":
+"ಮತ್ತೇಭವಿಕ್ರೀಡಿತ", "url": "home_bp.chandassu_bp.vrutta_bp.mattebha_vikreedita",
+}, { "name": "ಸ್ರಗ್ಧರಾ", "url": "home_bp.chandassu_bp.vrutta_bp.sragdhara", }, {
+"name": "ಮಹಾಸ್ರಗ್ಧರಾ", "url": "home_bp.chandassu_bp.vrutta_bp.maha_sragdhara",
+}, ], }, ], }, { "name": "ಗಣಗಳು", "headers": [ { "name": "ಗಣಗಳು", "url":
+"home_bp.gana_bp.gana", }, {"is_separator": True}, { "name": "ಮಾತ್ರಾ ಗಣ", "url":
+"home_bp.gana_bp.matra_gana", }, { "name": "ಅಕ್ಷರ ಗಣ", "url":
+"home_bp.gana_bp.akshara_gana", }, { "name": "ಅಂಶ ಗಣ", "url":
+"home_bp.gana_bp.amsha_gana", }, ], }, { "name": "ಕಂದ ಪದ್ಯ", "headers": [ {
+"name": "ಮಾತ್ರಾ ಗಣ", "url": "home_bp.gana_bp.matra_gana", }, { "name": "ಕಂದ
+ಪದ್ಯ", "url": "home_bp.chandassu_bp.kandapadya", }, ], }, { "name": "ಷಟ್ಪದಿ",
+"headers": [ { "name": "ಮಾತ್ರಾ ಗಣ", "url": "home_bp.gana_bp.matra_gana", }, {
+"name": "ಷಟ್ಪದಿ", "url": "home_bp.chandassu_bp.shatpadi_bp.shatpadi", },
+{"is_separator": True}, { "name": "ಶರ", "url":
+"home_bp.chandassu_bp.shatpadi_bp.shara", }, { "name": "ಕುಸುಮ", "url":
+"home_bp.chandassu_bp.shatpadi_bp.kusuma", }, { "name": "ಭೋಗ", "url":
+"home_bp.chandassu_bp.shatpadi_bp.bhoga", }, { "name": "ಭಾಮಿನೀ", "url":
+"home_bp.chandassu_bp.shatpadi_bp.bhamini", }, { "name": "ವಾರ್ಧಕ", "url":
+"home_bp.chandassu_bp.shatpadi_bp.vardhaka", }, { "name": "ಪರಿವರ್ಧಿನೀ", "url":
+"home_bp.chandassu_bp.shatpadi_bp.parivardhini", }, ], }, { "name": "ರಗಳೆ",
+"headers": [ { "name": "ಮಾತ್ರಾ ಗಣ", "url": "home_bp.gana_bp.matra_gana", }, {
+"name": "ರಗಳೆ", "url": "home_bp.chandassu_bp.ragale_bp.ragale", },
+{"is_separator": True}, { "name": "ಉತ್ಸಾಹ", "url":
+"home_bp.chandassu_bp.ragale_bp.utsaha", }, { "name": "ಮಂದಾನಿಲ", "url":
+"home_bp.chandassu_bp.ragale_bp.mandanila", }, { "name": "ಲಲಿತ", "url":
+"home_bp.chandassu_bp.ragale_bp.lalita", }, ], }, { "name": "ವೃತ್ತ", "headers":
+[ { "name": "ಅಕ್ಷರ ಗಣ", "url": "home_bp.gana_bp.akshara_gana", }, { "name":
+"ವೃತ್ತ", "url": "home_bp.chandassu_bp.vrutta_bp.vrutta", }, {"is_separator":
+True}, { "name": "ಉತ್ಪಲಮಾಲಾ", "url":
+"home_bp.chandassu_bp.vrutta_bp.utpala_mala", }, { "name": "ಚಂಪಕಮಾಲಾ", "url":
+"home_bp.chandassu_bp.vrutta_bp.champaka_mala", }, { "name": "ಶಾರ್ದೂಲವಿಕ್ರೀಡಿತ",
+"url": "home_bp.chandassu_bp.vrutta_bp.shardula_vikreedita", }, { "name":
+"ಮತ್ತೇಭವಿಕ್ರೀಡಿತ", "url": "home_bp.chandassu_bp.vrutta_bp.mattebha_vikreedita",
+}, { "name": "ಸ್ರಗ್ಧರಾ", "url": "home_bp.chandassu_bp.vrutta_bp.sragdhara", }, {
+"name": "ಮಹಾಸ್ರಗ್ಧರಾ", "url": "home_bp.chandassu_bp.vrutta_bp.maha_sragdhara",
+}, ], }, {"name": "ಪರೀಕ್ಷಿಸಿ", "url": "home_bp.test_bp.test"}, {"name":
+"ಅಭ್ಯಾಸ", "url": "home_bp.practice_bp.practice"}, ] %}
+
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <ul class="nav navbar-nav">
-      <li>
-        <a href="{{ url_for('home_bp.home')}}"
-          ><h4 class="header-text-size">
-            <b><font color="red">ಕನ್ನಡ ಛಂದಸ್ಸು</font></b>
-          </h4></a
-        >
-      </li>
+      {% for header in headers %} {% if header.headers %}
       <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#"
-          ><h4 class="header-text-size">
-            <font color="white">ಗಣಗಳು</font><span class="caret"></span></h4
-        ></a>
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+          <h4 class="header-text-size">
+            {% if header.color %}
+            <font color="{{ header.color }}">{{ header.name }}</font>
+            {% else %}
+            <font color="white">{{ header.name }}</font>
+            {% endif %}
+            <span class="caret"></span>
+          </h4>
+        </a>
         <ul class="dropdown-menu">
-          <li>
-            <a href="{{ url_for('home_bp.gana_bp.gana')}}"
-              ><h4 class="header-text-size">ಗಣಗಳು</h4></a
-            >
-          </li>
-          <li role="separator" class="divider"></li>
-          <li>
-            <a href="{{ url_for('home_bp.gana_bp.matra_gana')}}"
-              ><h4 class="header-text-size">ಮಾತ್ರಾ ಗಣ</h4></a
-            >
-          </li>
-          <li>
-            <a href="{{ url_for('home_bp.gana_bp.akshara_gana')}}"
-              ><h4 class="header-text-size">ಅಕ್ಷರ ಗಣ</h4></a
-            >
-          </li>
-        </ul>
-      </li>
-      <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#"
-          ><h4 class="header-text-size">
-            <font color="white">ಛಂದಸ್ಸು</font><span class="caret"></span></h4
-        ></a>
-        <ul class="dropdown-menu">
-          <li>
-            <a href="{{ url_for('home_bp.chandassu_bp.chandassu')}}"
-              ><h4 class="header-text-size">ಛಂದಸ್ಸು</h4></a
-            >
-          </li>
-          <li role="separator" class="divider"></li>
-          <li>
-            <a href="{{ url_for('home_bp.chandassu_bp.kandapadya')}}"
-              ><h4 class="header-text-size">ಕಂದ ಪದ್ಯ</h4></a
-            >
-          </li>
+          {% for sub_header in header.headers %} {% if sub_header.headers %}
           <li class="dropdown-submenu">
-            <a
-              class="dropdown-toggle nested-dropdown"
-              data-toggle="dropdown"
-              href="#"
-              ><h4 class="header-text-size">
-                <font color="black">ಷಟ್ಪದಿ</font><span class="caret"></span></h4
-            ></a>
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+              <h4 class="header-text-size">
+                {% if sub_header.color %}
+                <font color="{{ sub_header.color }}"
+                  >{{ sub_header.name }}</font
+                >
+                {% else %}
+                <font color="black">{{ sub_header.name }}</font>
+                {% endif %}
+                <span class="caret"></span>
+              </h4>
+            </a>
             <ul class="dropdown-menu">
-              <li>
-                <a
-                  href="{{ url_for('home_bp.chandassu_bp.shatpadi_bp.shatpadi')}}"
-                  ><h4 class="header-text-size">ಷಟ್ಪದಿ</h4></a
-                >
-              </li>
+              {% for sub_sub_header in sub_header.headers %} {% if
+              sub_sub_header.is_separator %}
               <li role="separator" class="divider"></li>
+              {% else %}
               <li>
-                <a href="{{ url_for('home_bp.chandassu_bp.shatpadi_bp.shara')}}"
-                  ><h4 class="header-text-size">ಶರ</h4></a
-                >
+                <a href="{{ url_for(sub_sub_header.url) }}">
+                  <h4 class="header-text-size">
+                    {% if sub_sub_header.color %}
+                    <font color="{{ sub_sub_header.color }}"
+                      >{{ sub_sub_header.name }}</font
+                    >
+                    {% else %} {{ sub_sub_header.name }} {% endif %}
+                  </h4>
+                </a>
               </li>
-              <li>
-                <a
-                  href="{{ url_for('home_bp.chandassu_bp.shatpadi_bp.kusuma')}}"
-                  ><h4 class="header-text-size">ಕುಸುಮ</h4></a
-                >
-              </li>
-              <li>
-                <a href="{{ url_for('home_bp.chandassu_bp.shatpadi_bp.bhoga')}}"
-                  ><h4 class="header-text-size">ಭೋಗ</h4></a
-                >
-              </li>
-              <li>
-                <a
-                  href="{{ url_for('home_bp.chandassu_bp.shatpadi_bp.bhamini')}}"
-                  ><h4 class="header-text-size">ಭಾಮಿನೀ</h4></a
-                >
-              </li>
-              <li>
-                <a
-                  href="{{ url_for('home_bp.chandassu_bp.shatpadi_bp.vardhaka')}}"
-                  ><h4 class="header-text-size">ವಾರ್ಧಕ</h4></a
-                >
-              </li>
-              <li>
-                <a
-                  href="{{ url_for('home_bp.chandassu_bp.shatpadi_bp.parivardhini')}}"
-                  ><h4 class="header-text-size">ಪರಿವರ್ಧಿನೀ</h4></a
-                >
-              </li>
+              {% endif %} {% endfor %}
             </ul>
           </li>
-          <li class="dropdown-submenu">
-            <a
-              class="dropdown-toggle nested-dropdown"
-              data-toggle="dropdown"
-              href="#"
-              ><h4 class="header-text-size">
-                <font color="black">ರಗಳೆ</font><span class="caret"></span></h4
-            ></a>
-            <ul class="dropdown-menu">
-              <li>
-                <a href="{{ url_for('home_bp.chandassu_bp.ragale_bp.ragale')}}"
-                  ><h4 class="header-text-size">ರಗಳೆ</h4></a
-                >
-              </li>
-              <li role="separator" class="divider"></li>
-              <li>
-                <a href="{{ url_for('home_bp.chandassu_bp.ragale_bp.utsaha')}}"
-                  ><h4 class="header-text-size">ಉತ್ಸಾಹ</h4></a
-                >
-              </li>
-              <li>
-                <a
-                  href="{{ url_for('home_bp.chandassu_bp.ragale_bp.mandanila')}}"
-                  ><h4 class="header-text-size">ಮಂದಾನಿಲ</h4></a
-                >
-              </li>
-              <li>
-                <a href="{{ url_for('home_bp.chandassu_bp.ragale_bp.lalita')}}"
-                  ><h4 class="header-text-size">ಲಲಿತ</h4></a
-                >
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-      <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#"
-          ><h4 class="header-text-size">
-            <font color="white">ವೃತ್ತಗಳು</font><span class="caret"></span></h4
-        ></a>
-        <ul class="dropdown-menu">
-          <li>
-            <a href="{{ url_for('home_bp.chandassu_bp.vrutta_bp.vrutta')}}"
-              ><h4 class="header-text-size">ವೃತ್ತಗಳು</h4></a
-            >
-          </li>
+          {% else %} {% if sub_header.is_separator %}
           <li role="separator" class="divider"></li>
+          {% else %}
           <li>
-            <a href="{{ url_for('home_bp.chandassu_bp.vrutta_bp.utpala_mala')}}"
-              ><h4 class="header-text-size">ಉತ್ಪಲಮಾಲಾ</h4></a
-            >
+            <a href="{{ url_for(sub_header.url) }}">
+              <h4 class="header-text-size">
+                {% if sub_header.color %}
+                <font color="{{ sub_header.color }}"
+                  >{{ sub_header.name }}</font
+                >
+                {% else %} {{ sub_header.name }} {% endif %}
+              </h4>
+            </a>
           </li>
-          <li>
-            <a
-              href="{{ url_for('home_bp.chandassu_bp.vrutta_bp.champaka_mala')}}"
-              ><h4 class="header-text-size">ಚಂಪಕಮಾಲಾ</h4></a
-            >
-          </li>
-          <li>
-            <a
-              href="{{ url_for('home_bp.chandassu_bp.vrutta_bp.shardula_vikreedita')}}"
-              ><h4 class="header-text-size">ಶಾರ್ದೂಲವಿಕ್ರೀಡಿತ</h4></a
-            >
-          </li>
-          <li>
-            <a
-              href="{{ url_for('home_bp.chandassu_bp.vrutta_bp.mattebha_vikreedita')}}"
-              ><h4 class="header-text-size">ಮತ್ತೇಭವಿಕ್ರೀಡಿತ</h4></a
-            >
-          </li>
-          <li>
-            <a href="{{ url_for('home_bp.chandassu_bp.vrutta_bp.sragdhara')}}"
-              ><h4 class="header-text-size">ಸ್ರಗ್ಧರಾ</h4></a
-            >
-          </li>
-          <li>
-            <a
-              href="{{ url_for('home_bp.chandassu_bp.vrutta_bp.maha_sragdhara')}}"
-              ><h4 class="header-text-size">ಮಹಾಸ್ರಗ್ಧರಾ</h4></a
-            >
-          </li>
+          {% endif %} {% endif %} {% endfor %}
         </ul>
       </li>
+      {% else %} {% if header.is_separator %}
+      <li role="separator" class="divider"></li>
+      {% else %}
       <li>
-        <a href="{{ url_for('home_bp.home')}}"
-          ><h4 class="header-text-size">
-            <font color="white">ಪರೀಕ್ಷಿಸಿ</font>
-          </h4></a
-        >
+        <a href="{{ url_for(header.url) }}">
+          <h4 class="header-text-size">
+            {% if header.color %}
+            <font color="{{ header.color }}">{{ header.name }}</font>
+            {% else %}
+            <font color="white">{{ header.name }}</font>
+            {% endif %}
+          </h4>
+        </a>
       </li>
-      <li>
-        <a href="{{ url_for('home_bp.home')}}"
-          ><h4 class="header-text-size">
-            <font color="white">ಅಭ್ಯಾಸ</font>
-          </h4></a
-        >
-      </li>
+      {% endif %} {% endif %} {% endfor %}
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li>
