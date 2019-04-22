@@ -37,8 +37,8 @@ def practice():
         "practice_poem_lines_count": practice_poem_lines_count,
         "chandassu_kannada_names": Constant.chandassu_kannada_names,
         "footer": {
-            "previous": "home_bp.home",
-            "next": "home_bp.home",
+            "previous": "home_bp.test_bp.test",
+            "next": "",
         },
     }
     return render_template("practice.html", content=content)
@@ -65,8 +65,8 @@ def result():
             "poem_chandassu": practice_poem_chandassu,
         },
         "footer": {
-            "previous": "home_bp.home",
-            "next": "home_bp.home",
+            "previous": "home_bp.practice_bp.practice",
+            "next": "",
         },
     }
 

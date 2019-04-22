@@ -13,8 +13,8 @@ def test():
         "title": "Test",
         "heading": "ಪರೀಕ್ಷಿಸಿ",
         "footer": {
-            "previous": "home_bp.home",
-            "next": "home_bp.home",
+            "previous": "home_bp.gana_bp.amsha_gana",
+            "next": "home_bp.practice_bp.practice",
         },
     }
     return render_template("test.html", content=content)
@@ -35,8 +35,8 @@ def result():
             "poem_chandassu": chandassu_type.poem_chandassu(),
         },
         "footer": {
-            "previous": "home_bp.home",
-            "next": "home_bp.home",
+            "previous": "home_bp.test_bp.test",
+            "next": "",
         },
     }
 

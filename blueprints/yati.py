@@ -11,8 +11,8 @@ def yati():
         "title": "Yati",
         "heading": "ಯತಿ",
         "footer": {
-            "previous": "home_bp.home",
-            "next": "home_bp.home",
+            "previous": "home_bp.prasa_bp.prasa",
+            "next": "home_bp.gana_bp.gana",
         },
     }
     return render_template("yati.html", content=content)

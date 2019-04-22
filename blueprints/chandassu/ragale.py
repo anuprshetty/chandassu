@@ -14,8 +14,8 @@ def ragale():
         "title": "Ragale",
         "heading": "ರಗಳೆ",
         "footer": {
-            "previous": "home_bp.home",
-            "next": "home_bp.home",
+            "previous": "home_bp.chandassu_bp.shatpadi_bp.parivardhini",
+            "next": "home_bp.chandassu_bp.ragale_bp.utsaha",
         },
     }
     return render_template("ragale.html", content=content)
@@ -27,8 +27,8 @@ def utsaha():
         "title": "Utsaha",
         "heading": "ಉತ್ಸಾಹ ರಗಳೆ",
         "footer": {
-            "previous": "home_bp.home",
-            "next": "home_bp.home",
+            "previous": "home_bp.chandassu_bp.ragale_bp.ragale",
+            "next": "home_bp.chandassu_bp.ragale_bp.mandanila",
         },
     }
     return render_template("utsaha.html", content=content)
@@ -40,8 +40,8 @@ def mandanila():
         "title": "Mandanila",
         "heading": "ಮಂದಾನಿಲ ರಗಳೆ",
         "footer": {
-            "previous": "home_bp.home",
-            "next": "home_bp.home",
+            "previous": "home_bp.chandassu_bp.ragale_bp.utsaha",
+            "next": "home_bp.chandassu_bp.ragale_bp.lalita",
         },
     }
     return render_template("mandanila.html", content=content)
@@ -53,8 +53,8 @@ def lalita():
         "title": "Lalita",
         "heading": "ಲಲಿತ ರಗಳೆ",
         "footer": {
-            "previous": "home_bp.home",
-            "next": "home_bp.home",
+            "previous": "home_bp.chandassu_bp.ragale_bp.mandanila",
+            "next": "home_bp.gana_bp.akshara_gana",
         },
     }
     return render_template("lalita.html", content=content)

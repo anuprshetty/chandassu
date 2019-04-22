@@ -14,8 +14,8 @@ def vrutta():
         "title": "Vrutta",
         "heading": "ಖ್ಯಾತಕರ್ಣಾಟಕ ವೃತ್ತಗಳು",
         "footer": {
-            "previous": "home_bp.home",
-            "next": "home_bp.home",
+            "previous": "home_bp.gana_bp.akshara_gana",
+            "next": "home_bp.chandassu_bp.vrutta_bp.utpala_mala",
         },
     }
     return render_template("vrutta.html", content=content)
@@ -27,8 +27,8 @@ def utpala_mala():
         "title": "Utpala Mala",
         "heading": "ಉತ್ಪಲಮಾಲಾ ವೃತ್ತ",
         "footer": {
-            "previous": "home_bp.home",
-            "next": "home_bp.home",
+            "previous": "home_bp.chandassu_bp.vrutta_bp.vrutta",
+            "next": "home_bp.chandassu_bp.vrutta_bp.champaka_mala",
         },
     }
     return render_template("utpala_mala.html", content=content)
@@ -40,8 +40,8 @@ def champaka_mala():
         "title": "Champaka Mala",
         "heading": "ಚಂಪಕಮಾಲಾ ವೃತ್ತ",
         "footer": {
-            "previous": "home_bp.home",
-            "next": "home_bp.home",
+            "previous": "home_bp.chandassu_bp.vrutta_bp.utpala_mala",
+            "next": "home_bp.chandassu_bp.vrutta_bp.shardula_vikreedita",
         },
     }
     return render_template("champaka_mala.html", content=content)
@@ -53,8 +53,8 @@ def shardula_vikreedita():
         "title": "Shardula Vikreedita",
         "heading": "ಶಾರ್ದೂಲವಿಕ್ರೀಡಿತ ವೃತ್ತ",
         "footer": {
-            "previous": "home_bp.home",
-            "next": "home_bp.home",
+            "previous": "home_bp.chandassu_bp.vrutta_bp.champaka_mala",
+            "next": "home_bp.chandassu_bp.vrutta_bp.mattebha_vikreedita",
         },
     }
     return render_template("shardula_vikreedita.html", content=content)
@@ -66,8 +66,8 @@ def mattebha_vikreedita():
         "title": "Mattebha Vikreedita",
         "heading": "ಮತ್ತೇಭವಿಕ್ರೀಡಿತ ವೃತ್ತ",
         "footer": {
-            "previous": "home_bp.home",
-            "next": "home_bp.home",
+            "previous": "home_bp.chandassu_bp.vrutta_bp.shardula_vikreedita",
+            "next": "home_bp.chandassu_bp.vrutta_bp.sragdhara",
         },
     }
     return render_template("mattebha_vikreedita.html", content=content)
@@ -79,8 +79,8 @@ def sragdhara():
         "title": "Sragdhara",
         "heading": "ಸ್ರಗ್ಧರಾ ವೃತ್ತ",
         "footer": {
-            "previous": "home_bp.home",
-            "next": "home_bp.home",
+            "previous": "home_bp.chandassu_bp.vrutta_bp.mattebha_vikreedita",
+            "next": "home_bp.chandassu_bp.vrutta_bp.maha_sragdhara",
         },
     }
     return render_template("sragdhara.html", content=content)
@@ -92,8 +92,8 @@ def maha_sragdhara():
         "title": "Maha Sragdhara",
         "heading": "ಮಹಾಸ್ರಗ್ಧರಾ ವೃತ್ತ",
         "footer": {
-            "previous": "home_bp.home",
-            "next": "home_bp.home",
+            "previous": "home_bp.chandassu_bp.vrutta_bp.sragdhara",
+            "next": "home_bp.gana_bp.amsha_gana",
         },
     }
     return render_template("maha_sragdhara.html", content=content)

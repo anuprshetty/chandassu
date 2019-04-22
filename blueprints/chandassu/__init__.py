@@ -22,7 +22,7 @@ def chandassu():
         "heading": "ಛಂದಸ್ಸು",
         "footer": {
             "previous": "home_bp.home",
-            "next": "home_bp.home",
+            "next": "home_bp.prasa_bp.prasa",
         },
     }
     return render_template("chandassu.html", content=content)
@@ -34,8 +34,8 @@ def kandapadya():
         "title": "Kandapadya",
         "heading": "ಕಂದ ಪದ್ಯ",
         "footer": {
-            "previous": "home_bp.home",
-            "next": "home_bp.home",
+            "previous": "home_bp.gana_bp.matra_gana",
+            "next": "home_bp.chandassu_bp.shatpadi_bp.shatpadi",
         },
     }
     return render_template("kandapadya.html", content=content)

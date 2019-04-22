@@ -11,8 +11,8 @@ def prasa():
         "title": "Prasa",
         "heading": "ಪ್ರಾಸ",
         "footer": {
-            "previous": "home_bp.home",
-            "next": "home_bp.home",
+            "previous": "home_bp.chandassu_bp.chandassu",
+            "next": "home_bp.yati_bp.yati",
         },
     }
     return render_template("prasa.html", content=content)

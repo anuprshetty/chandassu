@@ -11,8 +11,8 @@ def gana():
         "title": "Gana",
         "heading": "ಗಣಗಳು",
         "footer": {
-            "previous": "home_bp.home",
-            "next": "home_bp.home",
+            "previous": "home_bp.yati_bp.yati",
+            "next": "home_bp.gana_bp.matra_gana",
         },
     }
     return render_template("gana.html", content=content)
@@ -24,8 +24,8 @@ def matra_gana():
         "title": "Matra Gana",
         "heading": "ಮಾತ್ರಾ ಗಣ",
         "footer": {
-            "previous": "home_bp.home",
-            "next": "home_bp.home",
+            "previous": "home_bp.gana_bp.gana",
+            "next": "home_bp.chandassu_bp.kandapadya",
         },
     }
     return render_template("matra_gana.html", content=content)
@@ -37,8 +37,8 @@ def akshara_gana():
         "title": "Akshara Gana",
         "heading": "ಅಕ್ಷರ ಗಣ",
         "footer": {
-            "previous": "home_bp.home",
-            "next": "home_bp.home",
+            "previous": "home_bp.chandassu_bp.ragale_bp.lalita",
+            "next": "home_bp.chandassu_bp.vrutta_bp.vrutta",
         },
     }
     return render_template("akshara_gana.html", content=content)
@@ -50,8 +50,8 @@ def amsha_gana():
         "title": "Amsha Gana",
         "heading": "ಅಂಶ ಗಣ",
         "footer": {
-            "previous": "home_bp.home",
-            "next": "home_bp.home",
+            "previous": "home_bp.chandassu_bp.vrutta_bp.maha_sragdhara",
+            "next": "home_bp.test_bp.test",
         },
     }
     return render_template("amsha_gana.html", content=content)
