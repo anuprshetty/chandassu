@@ -3,101 +3,101 @@ from ..utils.constant import Constant
 
 
 class Shatpadi(Chandassu):
-    _name = Constant.chandassu_names.get("shatpadi").get("shatpadi")
-    _total_lines = 6
+    def __init__(self, poem_letters, prastara_symbols, prastara_values):
+        super().__init__(poem_letters, prastara_symbols, prastara_values)
+        self._name = Constant.chandassu_names.get("shatpadi").get("shatpadi")
+        self._total_lines = 6
 
-    _first_long_line_index = 2
-    _last_long_line_index = 5
+        self._first_long_line_index = 2
+        self._last_long_line_index = 5
 
-    _total_ganas_per_short_line = None
-    _total_ganas_per_long_line = None
+        self._total_ganas_per_short_line = None
+        self._total_ganas_per_long_line = None
 
-    _first_alternative_matras_count = None
-    _second_alternative_matras_count = None
+        self._first_alternative_matras_count = None
+        self._second_alternative_matras_count = None
 
-    _gana_should_not_occur_1 = None
-    _gana_should_not_occur_2 = None
+        self._gana_should_not_occur_1 = None
+        self._gana_should_not_occur_2 = None
 
-    @classmethod
-    def identified(cls):
-        if len(cls._prastara_values) == 0:
+    def identified(self):
+        if len(self._prastara_values) == 0:
             return False
 
         if (
-            cls._total_ganas_per_short_line == None
-            or cls._total_ganas_per_long_line == None
-            or cls._first_alternative_matras_count == None
-            or cls._second_alternative_matras_count == None
-            or cls._gana_should_not_occur_1 == None
-            or cls._gana_should_not_occur_2 == None
+            self._total_ganas_per_short_line == None
+            or self._total_ganas_per_long_line == None
+            or self._first_alternative_matras_count == None
+            or self._second_alternative_matras_count == None
+            or self._gana_should_not_occur_1 == None
+            or self._gana_should_not_occur_2 == None
         ):
             return False
 
-        if len(cls._prastara_values) != cls._total_lines:
+        if len(self._prastara_values) != self._total_lines:
             return False
 
         GURU_VALUE = Constant.prastara_info.get("guru").get("value")
-        cls._prastara_values[cls._first_long_line_index][-1] = GURU_VALUE
-        cls._prastara_values[cls._last_long_line_index][-1] = GURU_VALUE
+        self._prastara_values[self._first_long_line_index][-1] = GURU_VALUE
+        self._prastara_values[self._last_long_line_index][-1] = GURU_VALUE
 
-        for line_index in range(0, len(cls._prastara_values)):
-            prastara_line = cls._prastara_values[line_index]
+        for line_index in range(0, len(self._prastara_values)):
+            prastara_line = self._prastara_values[line_index]
 
             if line_index == 2 or line_index == 5:
-                total_matras_per_line = (cls._total_ganas_per_long_line / 2) * (
-                    cls._first_alternative_matras_count
-                    + cls._second_alternative_matras_count
+                total_matras_per_line = (self._total_ganas_per_long_line / 2) * (
+                    self._first_alternative_matras_count
+                    + self._second_alternative_matras_count
                 ) + 2
 
             else:
-                total_matras_per_line = (cls._total_ganas_per_short_line / 2) * (
-                    cls._first_alternative_matras_count
-                    + cls._second_alternative_matras_count
+                total_matras_per_line = (self._total_ganas_per_short_line / 2) * (
+                    self._first_alternative_matras_count
+                    + self._second_alternative_matras_count
                 )
 
             if sum(prastara_line) != total_matras_per_line:
                 return False
 
-        if not cls._pattern_matched(
-            cls._total_ganas_per_short_line,
-            cls._total_ganas_per_long_line,
-            cls._first_alternative_matras_count,
-            cls._second_alternative_matras_count,
-            cls._first_long_line_index,
-            cls._last_long_line_index,
+        if not self._pattern_matched(
+            self._total_ganas_per_short_line,
+            self._total_ganas_per_long_line,
+            self._first_alternative_matras_count,
+            self._second_alternative_matras_count,
+            self._first_long_line_index,
+            self._last_long_line_index,
             has_extra_guru=True,
         ):
             return False
 
-        if cls._special_conditions_met():
+        if self._special_conditions_met():
             GURU_SYMBOL = Constant.prastara_info.get("guru").get("symbol")
-            cls._prastara_symbols[cls._first_long_line_index][-1] = GURU_SYMBOL
-            cls._prastara_symbols[cls._last_long_line_index][-1] = GURU_SYMBOL
+            self._prastara_symbols[self._first_long_line_index][-1] = GURU_SYMBOL
+            self._prastara_symbols[self._last_long_line_index][-1] = GURU_SYMBOL
 
-            cls._form_ganas(
-                cls._first_alternative_matras_count,
-                cls._second_alternative_matras_count,
+            self._form_ganas(
+                self._first_alternative_matras_count,
+                self._second_alternative_matras_count,
             )
 
             return True
         else:
             return False
 
-    @classmethod
-    def _special_conditions_met(cls):
-        if cls._gana_should_not_occur_1 == "" or cls._gana_should_not_occur_2 == "":
+    def _special_conditions_met(self):
+        if self._gana_should_not_occur_1 == "" or self._gana_should_not_occur_2 == "":
             return True
 
         matras = []
         gana = ""
 
-        lines_count = len(cls._prastara_values)
+        lines_count = len(self._prastara_values)
         i = 0
         while i < lines_count:
-            matras_count = cls._first_alternative_matras_count
+            matras_count = self._first_alternative_matras_count
             is_first_alternative_matras_count = True
 
-            prastara_count = len(cls._prastara_values[i])
+            prastara_count = len(self._prastara_values[i])
             if (
                 i == 2 or i == 5
             ):  # if shatpadi line is a long line (i.e., at line index 2 and 5), then there will always be an extra_guru at the end of the line.
@@ -105,24 +105,24 @@ class Shatpadi(Chandassu):
 
             j = 0
             while j < prastara_count:
-                matras.append(cls._prastara_values[i][j])
-                gana = gana + str(cls._prastara_values[i][j])
+                matras.append(self._prastara_values[i][j])
+                gana = gana + str(self._prastara_values[i][j])
 
                 if sum(matras) != matras_count:
                     j = j + 1
                     continue
 
                 if (
-                    gana == cls._gana_should_not_occur_1
-                    or gana == cls._gana_should_not_occur_2
+                    gana == self._gana_should_not_occur_1
+                    or gana == self._gana_should_not_occur_2
                 ):
                     return False
 
                 if is_first_alternative_matras_count:
-                    matras_count = cls._second_alternative_matras_count
+                    matras_count = self._second_alternative_matras_count
                     is_first_alternative_matras_count = False
                 else:
-                    matras_count = cls._first_alternative_matras_count
+                    matras_count = self._first_alternative_matras_count
                     is_first_alternative_matras_count = True
 
                 matras = []
@@ -136,78 +136,90 @@ class Shatpadi(Chandassu):
 
 
 class Shara(Shatpadi):
-    _name = Constant.chandassu_names.get("shatpadi").get("shara")
+    def __init__(self, poem_letters, prastara_symbols, prastara_values):
+        super().__init__(poem_letters, prastara_symbols, prastara_values)
+        self._name = Constant.chandassu_names.get("shatpadi").get("shara")
 
-    _total_ganas_per_short_line = 2
-    _total_ganas_per_long_line = 3
+        self._total_ganas_per_short_line = 2
+        self._total_ganas_per_long_line = 3
 
-    _first_alternative_matras_count = 4
-    _second_alternative_matras_count = 4
+        self._first_alternative_matras_count = 4
+        self._second_alternative_matras_count = 4
 
-    _gana_should_not_occur_1 = "121"
-    _gana_should_not_occur_2 = "121"
+        self._gana_should_not_occur_1 = "121"
+        self._gana_should_not_occur_2 = "121"
 
 
 class Kusuma(Shatpadi):
-    _name = Constant.chandassu_names.get("shatpadi").get("kusuma")
+    def __init__(self, poem_letters, prastara_symbols, prastara_values):
+        super().__init__(poem_letters, prastara_symbols, prastara_values)
+        self._name = Constant.chandassu_names.get("shatpadi").get("kusuma")
 
-    _total_ganas_per_short_line = 2
-    _total_ganas_per_long_line = 3
+        self._total_ganas_per_short_line = 2
+        self._total_ganas_per_long_line = 3
 
-    _first_alternative_matras_count = 5
-    _second_alternative_matras_count = 5
+        self._first_alternative_matras_count = 5
+        self._second_alternative_matras_count = 5
 
-    _gana_should_not_occur_1 = "1211"
-    _gana_should_not_occur_2 = "122"
+        self._gana_should_not_occur_1 = "1211"
+        self._gana_should_not_occur_2 = "122"
 
 
 class Bhoga(Shatpadi):
-    _name = Constant.chandassu_names.get("shatpadi").get("bhoga")
+    def __init__(self, poem_letters, prastara_symbols, prastara_values):
+        super().__init__(poem_letters, prastara_symbols, prastara_values)
+        self._name = Constant.chandassu_names.get("shatpadi").get("bhoga")
 
-    _total_ganas_per_short_line = 4
-    _total_ganas_per_long_line = 6
+        self._total_ganas_per_short_line = 4
+        self._total_ganas_per_long_line = 6
 
-    _first_alternative_matras_count = 3
-    _second_alternative_matras_count = 3
+        self._first_alternative_matras_count = 3
+        self._second_alternative_matras_count = 3
 
-    _gana_should_not_occur_1 = "12"
-    _gana_should_not_occur_2 = "12"
+        self._gana_should_not_occur_1 = "12"
+        self._gana_should_not_occur_2 = "12"
 
 
 class Bhamini(Shatpadi):
-    _name = Constant.chandassu_names.get("shatpadi").get("bhamini")
+    def __init__(self, poem_letters, prastara_symbols, prastara_values):
+        super().__init__(poem_letters, prastara_symbols, prastara_values)
+        self._name = Constant.chandassu_names.get("shatpadi").get("bhamini")
 
-    _total_ganas_per_short_line = 4
-    _total_ganas_per_long_line = 6
+        self._total_ganas_per_short_line = 4
+        self._total_ganas_per_long_line = 6
 
-    _first_alternative_matras_count = 3
-    _second_alternative_matras_count = 4
+        self._first_alternative_matras_count = 3
+        self._second_alternative_matras_count = 4
 
-    _gana_should_not_occur_1 = "12"
-    _gana_should_not_occur_2 = "121"
+        self._gana_should_not_occur_1 = "12"
+        self._gana_should_not_occur_2 = "121"
 
 
 class Vardhaka(Shatpadi):
-    _name = Constant.chandassu_names.get("shatpadi").get("vardhaka")
+    def __init__(self, poem_letters, prastara_symbols, prastara_values):
+        super().__init__(poem_letters, prastara_symbols, prastara_values)
+        self._name = Constant.chandassu_names.get("shatpadi").get("vardhaka")
 
-    _total_ganas_per_short_line = 4
-    _total_ganas_per_long_line = 6
+        self._total_ganas_per_short_line = 4
+        self._total_ganas_per_long_line = 6
 
-    _first_alternative_matras_count = 5
-    _second_alternative_matras_count = 5
+        self._first_alternative_matras_count = 5
+        self._second_alternative_matras_count = 5
 
-    _gana_should_not_occur_1 = "1211"
-    _gana_should_not_occur_2 = "122"
+        self._gana_should_not_occur_1 = "1211"
+        self._gana_should_not_occur_2 = "122"
 
 
 class Parivardhini(Shatpadi):
-    _name = Constant.chandassu_names.get("shatpadi").get("parivardhini")
+    def __init__(self, poem_letters, prastara_symbols, prastara_values):
+        super().__init__(poem_letters, prastara_symbols, prastara_values)
+        self._name = Constant.chandassu_names.get("shatpadi").get("parivardhini")
 
-    _total_ganas_per_short_line = 4
-    _total_ganas_per_long_line = 6
+        self._total_ganas_per_short_line = 4
+        self._total_ganas_per_long_line = 6
 
-    _first_alternative_matras_count = 4
-    _second_alternative_matras_count = 4
+        self._first_alternative_matras_count = 4
+        self._second_alternative_matras_count = 4
 
-    _gana_should_not_occur_1 = "121"
-    _gana_should_not_occur_2 = "121"
+        self._gana_should_not_occur_1 = "121"
+        self._gana_should_not_occur_2 = "121"

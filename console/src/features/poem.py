@@ -4,32 +4,27 @@ import copy
 
 
 class Poem:
-    _poem = ""
-    _poem_kannada_symbols = []
-    _poem_kannada_letters = []
+    def __init__(self, poem):
+        self._poem = poem
 
-    @classmethod
-    def set_poem(cls, poem):
-        cls._poem = poem
+        self._poem_kannada_symbols = []
+        self._poem_kannada_letters = []
 
-    @classmethod
-    def cleanup(cls):
-        if cls._poem == "":
+    def cleanup(self):
+        if self._poem == "":
             return
 
-        cls._filter_kannada_symbols()
-        cls._form_kannada_letters()
+        self._filter_kannada_symbols()
+        self._form_kannada_letters()
 
-    @classmethod
-    def letters(cls):
-        return cls._poem_kannada_letters
+    def letters(self):
+        return self._poem_kannada_letters
 
-    @classmethod
-    def _filter_kannada_symbols(cls):
+    def _filter_kannada_symbols(self):
         poem = ""
 
         # remove all non-kannada unicode characters.
-        for letter in cls._poem:
+        for letter in self._poem:
             letter_unicode = ord(letter)
             if (
                 Constant.kannada_unicode_range.get("start")
@@ -50,11 +45,10 @@ class Poem:
             poem_line for poem_line in poem_lines if poem_line != ""
         ]  # remove empty lines.
 
-        cls._poem_kannada_symbols = [list(poem_line) for poem_line in poem_lines]
+        self._poem_kannada_symbols = [list(poem_line) for poem_line in poem_lines]
 
-    @classmethod
-    def _form_kannada_letters(cls):
-        poem_letters = copy.deepcopy(cls._poem_kannada_symbols)
+    def _form_kannada_letters(self):
+        poem_letters = copy.deepcopy(self._poem_kannada_symbols)
 
         halant = Constant.kannada_symbols.get("halant")
         alphabets = Constant.kannada_symbols.get("alphabets")
@@ -86,4 +80,4 @@ class Poem:
 
             i = i + 1
 
-        cls._poem_kannada_letters = poem_letters
+        self._poem_kannada_letters = poem_letters

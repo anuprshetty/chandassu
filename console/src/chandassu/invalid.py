@@ -3,13 +3,14 @@ from ..utils.constant import Constant
 
 
 class Invalid(Chandassu):
-    _name = Constant.chandassu_names.get("invalid")
+    def __init__(self, poem_letters, prastara_symbols, prastara_values):
+        super().__init__(poem_letters, prastara_symbols, prastara_values)
+        self._name = Constant.chandassu_names.get("invalid")
 
-    @classmethod
-    def identified(cls):
-        cls._invalid = True
+    def identified(self):
+        self._invalid = True
 
-        cls._form_ganas(
+        self._form_ganas(
             first_alternative_matras_count=-1, second_alternative_matras_count=-1
         )
 

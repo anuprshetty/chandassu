@@ -1,7 +1,7 @@
 import unittest
 import os
 import re
-from src.features.chandassu_type import ChandassuType
+from src.features.chandassu_type import get_chandassu_type
 from src.utils.constant import Constant
 
 
@@ -52,7 +52,7 @@ class TestChandassuType(unittest.TestCase):
                     poems = re.split(r"\n\s*\n", poem_file_content)
 
                     for poem_no, poem in enumerate(poems, 1):
-                        chandassu_type = ChandassuType.get_chandassu_type(poem)
+                        chandassu_type = get_chandassu_type(poem)
                         actual_chandassu_name = chandassu_type.name()
 
                         expected_chandassu_name = self.get_expected_chandassu_name(

@@ -1,5 +1,5 @@
 import os
-from src.features.chandassu_type import ChandassuType
+from src.features.chandassu_type import get_chandassu_type
 
 
 def form_output(chandassu_type):
@@ -44,7 +44,7 @@ def main():
     with open(input_poem_file_path, "r") as input_poem_fd:
         input_poem = input_poem_fd.read()
 
-    chandassu_type = ChandassuType.get_chandassu_type(input_poem)
+    chandassu_type = get_chandassu_type(input_poem)
 
     form_output(chandassu_type)
 

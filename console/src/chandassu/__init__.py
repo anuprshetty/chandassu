@@ -11,10 +11,10 @@ from .vrutta import (
 )
 from .invalid import Invalid
 
-kandapadya_types = [Kandapadya]
-shatpadi_types = [Shara, Kusuma, Bhoga, Bhamini, Vardhaka, Parivardhini]
-ragale_types = [Utsaha, Mandanila, Lalita]
-vrutta_types = [
+KandapadyaTypes = [Kandapadya]
+ShatpadiTypes = [Shara, Kusuma, Bhoga, Bhamini, Vardhaka, Parivardhini]
+RagaleTypes = [Utsaha, Mandanila, Lalita]
+VruttaTypes = [
     UtpalaMala,
     ChampakaMala,
     ShardulaVikreedita,
@@ -22,8 +22,8 @@ vrutta_types = [
     Sragdhara,
     MahaSragdhara,
 ]
-invalid_types = [Invalid]
+InvalidTypes = [Invalid]
 
-chandassu_types = (
-    kandapadya_types + shatpadi_types + ragale_types + vrutta_types + invalid_types
+ChandassuTypes = (
+    KandapadyaTypes + ShatpadiTypes + RagaleTypes + VruttaTypes + InvalidTypes
 )

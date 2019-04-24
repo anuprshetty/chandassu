@@ -2,94 +2,78 @@ from ..utils.constant import Constant
 
 
 class Chandassu:
-    _name = Constant.chandassu_names.get("chandassu")
-    _invalid = False
-    _gana_symbol = Constant.gana_symbol
+    def __init__(self, poem_letters, prastara_symbols, prastara_values):
+        self._poem_letters = poem_letters
+        self._prastara_symbols = prastara_symbols
+        self._prastara_values = prastara_values
 
-    _poem_letters = []
-    _prastara_symbols = []
-    _prastara_values = []
+        self._name = Constant.chandassu_names.get("chandassu")
+        self._invalid = False
+        self._gana_symbol = Constant.gana_symbol
 
-    _poem_letters_ganas = []
-    _prastara_symbols_ganas = []
+        self._poem_letters_ganas = []
+        self._prastara_symbols_ganas = []
 
-    _poem_chandassu = ""
+        self._poem_chandassu = ""
 
-    @classmethod
-    def set_poem_letters(cls, poem_letters):
-        cls._poem_letters = poem_letters
+    def name(self):
+        return self._name
 
-    @classmethod
-    def set_prastara_symbol(cls, prastara_symbol):
-        cls._prastara_symbols = prastara_symbol
+    def poem_chandassu(self):
+        self._form_poem_chandassu()
 
-    @classmethod
-    def set_prastara_value(cls, prastara_value):
-        cls._prastara_values = prastara_value
+        return self._poem_chandassu
 
-    @classmethod
-    def name(cls):
-        return cls._name
+    def invalid(self):
+        return self._invalid
 
-    @classmethod
-    def poem_chandassu(cls):
-        cls._form_poem_chandassu()
+    def _form_poem_chandassu(self):
+        self._poem_chandassu = ""
 
-        return cls._poem_chandassu
-
-    @classmethod
-    def invalid(cls):
-        return cls._invalid
-
-    @classmethod
-    def _form_poem_chandassu(cls):
-        cls._poem_chandassu = ""
-
-        if len(cls._poem_letters_ganas) == 0 or len(cls._prastara_symbols_ganas) == 0:
+        if len(self._poem_letters_ganas) == 0 or len(self._prastara_symbols_ganas) == 0:
             return
-        elif len(cls._poem_letters_ganas) != len(cls._prastara_symbols_ganas):
+        elif len(self._poem_letters_ganas) != len(self._prastara_symbols_ganas):
             return
 
-        lines_count = len(cls._poem_letters_ganas)
+        lines_count = len(self._poem_letters_ganas)
         for i in range(0, lines_count):
-            cls._poem_chandassu += (
-                "".join(cls._prastara_symbols_ganas[i])
+            self._poem_chandassu += (
+                "".join(self._prastara_symbols_ganas[i])
                 + "\n"
-                + "".join(cls._poem_letters_ganas[i])
+                + "".join(self._poem_letters_ganas[i])
                 + "\n\n"
             )
 
-    @classmethod
     def _form_ganas(
-        cls,
+        self,
         first_alternative_matras_count,
         second_alternative_matras_count,
     ):
-        cls._poem_letters_ganas = []
-        cls._prastara_symbols_ganas = []
+        self._poem_letters_ganas = []
+        self._prastara_symbols_ganas = []
 
-        if len(cls._poem_letters) == 0 or len(cls._prastara_symbols) == 0:
+        if len(self._poem_letters) == 0 or len(self._prastara_symbols) == 0:
             return
-        elif len(cls._poem_letters) != len(cls._prastara_symbols):
+        elif len(self._poem_letters) != len(self._prastara_symbols):
             return
 
         LAGHU_SYMBOL = Constant.prastara_info.get("laghu").get("symbol")
         GURU_SYMBOL = Constant.prastara_info.get("guru").get("symbol")
 
-        lines_count = len(cls._poem_letters)
+        lines_count = len(self._poem_letters)
         i = 0
         while i < lines_count:
-            cls._poem_letters_ganas.append([])
-            cls._prastara_symbols_ganas.append([])
+            self._poem_letters_ganas.append([])
+            self._prastara_symbols_ganas.append([])
 
             if (
                 first_alternative_matras_count != -1
                 and second_alternative_matras_count != -1
             ):
-                cls._poem_letters_ganas[i].append(cls._gana_symbol)
-                cls._prastara_symbols_ganas[i].append(cls._gana_symbol)
+                self._poem_letters_ganas[i].append(self._gana_symbol)
+                self._prastara_symbols_ganas[i].append(self._gana_symbol)
 
-            letters_count = len(cls._poem_letters[i])
+            letters_count = len(self._poem_letters[i])
 
             matras_count = first_alternative_matras_count
             is_first_alternative_matras_count = True
@@ -97,11 +81,11 @@ class Chandassu:
 
             j = 0
             while j < letters_count:
-                poem_letter = cls._poem_letters[i][j]
-                prastara_symbol = cls._prastara_symbols[i][j]
+                poem_letter = self._poem_letters[i][j]
+                prastara_symbol = self._prastara_symbols[i][j]
 
-                cls._poem_letters_ganas[i].append(poem_letter)
-                cls._prastara_symbols_ganas[i].append(prastara_symbol)
+                self._poem_letters_ganas[i].append(poem_letter)
+                self._prastara_symbols_ganas[i].append(prastara_symbol)
 
                 if prastara_symbol == LAGHU_SYMBOL:
                     current_matras_count += 1
@@ -112,8 +96,8 @@ class Chandassu:
                     j = j + 1
                     continue
 
-                cls._poem_letters_ganas[i].append(cls._gana_symbol)
-                cls._prastara_symbols_ganas[i].append(cls._gana_symbol)
+                self._poem_letters_ganas[i].append(self._gana_symbol)
+                self._prastara_symbols_ganas[i].append(self._gana_symbol)
 
                 current_matras_count = 0
 
@@ -130,19 +114,17 @@ class Chandassu:
                 first_alternative_matras_count != -1
                 and second_alternative_matras_count != -1
             ):
-                if cls._prastara_symbols_ganas[i][-1] != cls._gana_symbol:
-                    cls._poem_letters_ganas[i].append(cls._gana_symbol)
-                    cls._prastara_symbols_ganas[i].append(cls._gana_symbol)
+                if self._prastara_symbols_ganas[i][-1] != self._gana_symbol:
+                    self._poem_letters_ganas[i].append(self._gana_symbol)
+                    self._prastara_symbols_ganas[i].append(self._gana_symbol)
 
             i = i + 1
 
-    @classmethod
-    def identified(cls):
+    def identified(self):
         raise NotImplementedError
 
-    @classmethod
     def _pattern_matched(
-        cls,
+        self,
         total_ganas_per_short_line,
         total_ganas_per_long_line,
         first_alternative_matras_count,
@@ -151,10 +133,10 @@ class Chandassu:
         last_long_line_index,
         has_extra_guru,
     ):
-        lines_count = len(cls._prastara_values)
+        lines_count = len(self._prastara_values)
         i = 0
         while i < lines_count:
-            prastara_count = len(cls._prastara_values[i])
+            prastara_count = len(self._prastara_values[i])
 
             if first_long_line_index == -1 or last_long_line_index == -1:
                 if has_extra_guru == True:
@@ -173,7 +155,7 @@ class Chandassu:
 
             j = 0
             while j < prastara_count:
-                matras_count = matras_count - cls._prastara_values[i][j]
+                matras_count = matras_count - self._prastara_values[i][j]
 
                 if matras_count == 0:
                     total_ganas = total_ganas - 1

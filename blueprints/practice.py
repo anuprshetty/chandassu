@@ -2,7 +2,7 @@ from flask import Blueprint, render_template, request
 
 from console.src.utils.random_poem import get_random_poem
 from console.src.utils.constant import Constant
-from console.src.features.chandassu_type import ChandassuType
+from console.src.features.chandassu_type import get_chandassu_type
 
 practice_bp = Blueprint(
     "practice_bp",
@@ -50,7 +50,7 @@ def result():
     practice_poem_chandassu = request.form.get("practice_poem")
     selected_chandassu_name = request.form.get("selected_chandassu_name")
 
-    original_poem_chandassu_type = ChandassuType.get_chandassu_type(original_poem)
+    original_poem_chandassu_type = get_chandassu_type(original_poem)
 
     content = {
         "title": "Result",

@@ -2,34 +2,28 @@ from ..utils.constant import Constant
 
 
 class Prastara:
-    _poem_letters = []
-    _prastara_symbol = []
-    _prastara_value = []
+    def __init__(self, poem_letters):
+        self._poem_letters = poem_letters
 
-    @classmethod
-    def set_poem_letters(cls, poem_letters):
-        cls._poem_letters = poem_letters
+        self._prastara_symbol = []
+        self._prastara_value = []
 
-    @classmethod
-    def poem_prastara_symbol(cls):
-        return cls._prastara_symbol
+    def poem_prastara_symbol(self):
+        return self._prastara_symbol
 
-    @classmethod
-    def poem_prastara_value(cls):
-        return cls._prastara_value
+    def poem_prastara_value(self):
+        return self._prastara_value
 
-    @classmethod
-    def identify(cls):
-        if len(cls._poem_letters) == 0:
+    def identify(self):
+        if len(self._poem_letters) == 0:
             return
 
-        cls._form_prastara_value()
-        cls._form_prastara_symbol()
-        cls._remove_space_value_from_prastara_value()
+        self._form_prastara_value()
+        self._form_prastara_symbol()
+        self._remove_space_value_from_prastara_value()
 
-    @classmethod
-    def _form_prastara_value(cls):
-        cls._prastara_value = []
+    def _form_prastara_value(self):
+        self._prastara_value = []
 
         halant = Constant.kannada_symbols.get("halant")
         halant_letters = Constant.kannada_symbols.get("halant_letters")
@@ -39,18 +33,18 @@ class Prastara:
         LAGHU_VALUE = Constant.prastara_info.get("laghu").get("value")
         GURU_VALUE = Constant.prastara_info.get("guru").get("value")
 
-        lines_count = len(cls._poem_letters)
+        lines_count = len(self._poem_letters)
         i = 0
         while i < lines_count:
             prastara_line = []
 
-            letters_count = len(cls._poem_letters[i])
+            letters_count = len(self._poem_letters[i])
             j = 0
             while j < letters_count:
-                if cls._poem_letters[i][j] == " ":
+                if self._poem_letters[i][j] == " ":
                     prastara_line.append(SPACE_VALUE)
                 elif (
-                    cls._poem_letters[i][j] in halant_letters
+                    self._poem_letters[i][j] in halant_letters
                 ):  # if the letter like 'ಳ್' exists in the list ['ಳ್'], then
                     if (
                         len(prastara_line) > 0
@@ -65,7 +59,7 @@ class Prastara:
                     )  # if the letter is like 'ಳ್', then add a SPACE as a placeholder for that letter.
                 elif any(
                     [
-                        guru_letter in cls._poem_letters[i][j]
+                        guru_letter in self._poem_letters[i][j]
                         for guru_letter in guru_letters
                     ]  # if the letter is GURU, then
                 ):
@@ -75,13 +69,13 @@ class Prastara:
                 ):  # if the letter is not the last_letter in the line, then
                     if (
                         halant
-                        in cls._poem_letters[i][
+                        in self._poem_letters[i][
                             j + 1
                         ]  # here '್' exists in the next_letter 'ಳ್ದ' (Because 'ಳ' + '್' + 'ದ' = 'ಳ್ದ') and
-                        and cls._poem_letters[i][j + 1]
+                        and self._poem_letters[i][j + 1]
                         not in halant_letters  # and the next_letter 'ಳ್ದ' doesn't exist in the list ['ಳ್'].
                     ):  # if the next_letter is like 'ಳ್ದ', then
-                        # next_letter_symbols = list(cls._poem_letters[i][j + 1])
+                        # next_letter_symbols = list(self._poem_letters[i][j + 1])
                         # if (
                         #     len(next_letter_symbols)
                         #     <= 4  # 'ರ್ಗೆ' ('ರ' + '್' + 'ಗ' + "ೆ").
@@ -100,11 +94,11 @@ class Prastara:
                             GURU_VALUE
                         )  # ಒತ್ತಕ್ಷರದ ಹಿಂದಿನ ಅಕ್ಷರ ಗುರುವಾಗಿರುತ್ತದೆ.
                     elif (
-                        cls._poem_letters[i][j + 1] == " "
-                        and halant in cls._poem_letters[i][j + 2]
-                        and cls._poem_letters[i][j + 2] not in halant_letters
+                        self._poem_letters[i][j + 1] == " "
+                        and halant in self._poem_letters[i][j + 2]
+                        and self._poem_letters[i][j + 2] not in halant_letters
                     ):  # if the next_letter is space and next_to_next_letter is like 'ಳ್ದ', then
-                        # next_letter_symbols = list(cls._poem_letters[i][j + 2])
+                        # next_letter_symbols = list(self._poem_letters[i][j + 2])
                         # if (
                         #     len(next_letter_symbols)
                         #     <= 4  # 'ರ್ಗೆ' ('ರ' + '್' + 'ಗ' + "ೆ").
@@ -125,11 +119,11 @@ class Prastara:
                     else:  # otherwise letter is LAGHU.
                         prastara_line.append(LAGHU_VALUE)
                 elif (
-                    i + 1 < lines_count and len(cls._poem_letters[i + 1]) != 0
+                    i + 1 < lines_count and len(self._poem_letters[i + 1]) != 0
                 ):  # if the letter is the last_letter in the line and current_line is not the last_line, then
                     if (
-                        halant in cls._poem_letters[i + 1][0]
-                        or cls._poem_letters[i + 1][0] in halant_letters
+                        halant in self._poem_letters[i + 1][0]
+                        or self._poem_letters[i + 1][0] in halant_letters
                     ):  # if first_letter in the next_line is like 'ಳ್ದ' OR like 'ಳ್', then
                         prastara_line.append(
                             GURU_VALUE
@@ -143,12 +137,11 @@ class Prastara:
 
                 j = j + 1
 
-            cls._prastara_value.append(prastara_line)
+            self._prastara_value.append(prastara_line)
             i = i + 1
 
-    @classmethod
-    def _form_prastara_symbol(cls):
-        cls._prastara_symbol = []
+    def _form_prastara_symbol(self):
+        self._prastara_symbol = []
 
         LAGHU_VALUE = Constant.prastara_info.get("laghu").get("value")
         GURU_VALUE = Constant.prastara_info.get("guru").get("value")
@@ -157,19 +150,18 @@ class Prastara:
         LAGHU_SYMBOL = Constant.prastara_info.get("laghu").get("symbol")
         GURU_SYMBOL = Constant.prastara_info.get("guru").get("symbol")
 
-        for line_index, prastara_line in enumerate(cls._prastara_value):
-            cls._prastara_symbol.append([])
+        for line_index, prastara_line in enumerate(self._prastara_value):
+            self._prastara_symbol.append([])
             for value in prastara_line:
                 if value == LAGHU_VALUE:
-                    cls._prastara_symbol[line_index].append(LAGHU_SYMBOL)
+                    self._prastara_symbol[line_index].append(LAGHU_SYMBOL)
                 elif value == GURU_VALUE:
-                    cls._prastara_symbol[line_index].append(GURU_SYMBOL)
+                    self._prastara_symbol[line_index].append(GURU_SYMBOL)
                 else:
-                    cls._prastara_symbol[line_index].append(SPACE_SYMBOL)
+                    self._prastara_symbol[line_index].append(SPACE_SYMBOL)
 
-    @classmethod
-    def _remove_space_value_from_prastara_value(cls):
-        cls._prastara_value = [
+    def _remove_space_value_from_prastara_value(self):
+        self._prastara_value = [
             [value for value in prastara_line if value != 0]
-            for prastara_line in cls._prastara_value
+            for prastara_line in self._prastara_value
         ]

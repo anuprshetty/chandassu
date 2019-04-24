@@ -3,20 +3,22 @@ from .prastara import Prastara
 from .chandassu_identifier import ChandassuIdentifier
 
 
-class ChandassuType:
-    @classmethod
-    def get_chandassu_type(cls, input_poem):
-        Poem.set_poem(input_poem)
-        Poem.cleanup()
+def get_chandassu_type(input_poem):
+    poem = Poem(input_poem)
+    poem.cleanup()
+    poem_letters = poem.letters()
 
-        Prastara.set_poem_letters(Poem.letters())
-        Prastara.identify()
+    prastara = Prastara(poem_letters)
+    prastara.identify()
+    poem_prastara_symbol = prastara.poem_prastara_symbol()
+    poem_prastara_value = prastara.poem_prastara_value()
 
-        ChandassuIdentifier.set_poem_letters(Poem.letters())
-        ChandassuIdentifier.set_prastara_symbol(Prastara.poem_prastara_symbol())
-        ChandassuIdentifier.set_prastara_value(Prastara.poem_prastara_value())
-        ChandassuIdentifier.identify()
+    chandassu_identifier = ChandassuIdentifier(
+        poem_letters, poem_prastara_symbol, poem_prastara_value
+    )
 
-        chandassu_type = ChandassuIdentifier.chandassu_type()
+    chandassu_identifier.identify()
 
-        return chandassu_type
+    chandassu_type = chandassu_identifier.chandassu_type()
+
+    return chandassu_type

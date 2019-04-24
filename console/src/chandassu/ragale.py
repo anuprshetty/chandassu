@@ -3,32 +3,33 @@ from ..utils.constant import Constant
 
 
 class Ragale(Chandassu):
-    _name = Constant.chandassu_names.get("ragale").get("ragale")
+    def __init__(self, poem_letters, prastara_symbols, prastara_values):
+        super().__init__(poem_letters, prastara_symbols, prastara_values)
+        self._name = Constant.chandassu_names.get("ragale").get("ragale")
 
-    _min_lines = 4
+        self._min_lines = 4
 
-    _scenarios = None
+        self._scenarios = None
 
-    _gana_should_not_occur_1 = None
-    _gana_should_not_occur_2 = None
+        self._gana_should_not_occur_1 = None
+        self._gana_should_not_occur_2 = None
 
-    @classmethod
-    def identified(cls):
-        if len(cls._prastara_values) == 0:
+    def identified(self):
+        if len(self._prastara_values) == 0:
             return False
 
         if (
-            cls._scenarios == None
-            or cls._gana_should_not_occur_1 == None
-            or cls._gana_should_not_occur_2 == None
+            self._scenarios == None
+            or self._gana_should_not_occur_1 == None
+            or self._gana_should_not_occur_2 == None
         ):
             return False
 
-        if len(cls._prastara_values) < cls._min_lines:
+        if len(self._prastara_values) < self._min_lines:
             return False
 
-        for scenario in cls._scenarios:
-            if cls._check_for(scenario):
+        for scenario in self._scenarios:
+            if self._check_for(scenario):
                 first_alternative_matras_count = scenario.get(
                     "first_alternative_matras_count"
                 )
@@ -36,7 +37,7 @@ class Ragale(Chandassu):
                     "second_alternative_matras_count"
                 )
 
-                cls._form_ganas(
+                self._form_ganas(
                     first_alternative_matras_count, second_alternative_matras_count
                 )
 
@@ -44,8 +45,7 @@ class Ragale(Chandassu):
 
         return False
 
-    @classmethod
-    def _check_for(cls, scenario):
+    def _check_for(self, scenario):
         total_matras_per_line = scenario.get("total_matras_per_line")
         total_ganas_per_line = scenario.get("total_ganas_per_line")
         first_alternative_matras_count = scenario.get("first_alternative_matras_count")
@@ -54,11 +54,11 @@ class Ragale(Chandassu):
         )
         has_extra_guru = scenario.get("has_extra_guru")
 
-        for prastara_line in cls._prastara_values:
+        for prastara_line in self._prastara_values:
             if sum(prastara_line) != total_matras_per_line:
                 return False
 
-        if not cls._pattern_matched(
+        if not self._pattern_matched(
             total_ganas_per_line,
             total_ganas_per_line,
             first_alternative_matras_count,
@@ -69,47 +69,46 @@ class Ragale(Chandassu):
         ):
             return False
 
-        return cls._special_conditions_met(
+        return self._special_conditions_met(
             first_alternative_matras_count,
             second_alternative_matras_count,
             has_extra_guru=has_extra_guru,
         )
 
-    @classmethod
     def _special_conditions_met(
-        cls,
+        self,
         first_alternative_matras_count,
         second_alternative_matras_count,
         has_extra_guru,
     ):
-        if cls._gana_should_not_occur_1 == "" or cls._gana_should_not_occur_2 == "":
+        if self._gana_should_not_occur_1 == "" or self._gana_should_not_occur_2 == "":
             return True
 
         matras = []
         gana = ""
 
-        lines_count = len(cls._prastara_values)
+        lines_count = len(self._prastara_values)
         i = 0
         while i < lines_count:
             matras_count = first_alternative_matras_count
             is_first_alternative_matras_count = True
 
-            prastara_count = len(cls._prastara_values[i])
+            prastara_count = len(self._prastara_values[i])
             if has_extra_guru:
                 prastara_count = prastara_count - 1
 
             j = 0
             while j < prastara_count:
-                matras.append(cls._prastara_values[i][j])
-                gana = gana + str(cls._prastara_values[i][j])
+                matras.append(self._prastara_values[i][j])
+                gana = gana + str(self._prastara_values[i][j])
 
                 if sum(matras) != matras_count:
                     j = j + 1
                     continue
 
                 if (
-                    gana == cls._gana_should_not_occur_1
-                    or gana == cls._gana_should_not_occur_2
+                    gana == self._gana_should_not_occur_1
+                    or gana == self._gana_should_not_occur_2
                 ):
                     return False
 
@@ -131,72 +130,80 @@ class Ragale(Chandassu):
 
 
 class Utsaha(Ragale):
-    _name = Constant.chandassu_names.get("ragale").get("utsaha")
+    def __init__(self, poem_letters, prastara_symbols, prastara_values):
+        super().__init__(poem_letters, prastara_symbols, prastara_values)
+        self._name = Constant.chandassu_names.get("ragale").get("utsaha")
 
-    _scenarios = [
-        {
-            "total_matras_per_line": 24,
-            "total_ganas_per_line": 8,
-            "first_alternative_matras_count": 3,
-            "second_alternative_matras_count": 3,
-            "has_extra_guru": False,
-        },
-        {
-            "total_matras_per_line": 12,
-            "total_ganas_per_line": 4,
-            "first_alternative_matras_count": 3,
-            "second_alternative_matras_count": 3,
-            "has_extra_guru": False,
-        },
-        {
-            "total_matras_per_line": 11,
-            "total_ganas_per_line": 3,
-            "first_alternative_matras_count": 3,
-            "second_alternative_matras_count": 3,
-            "has_extra_guru": True,
-        },
-    ]
+        self._scenarios = [
+            {
+                "total_matras_per_line": 24,
+                "total_ganas_per_line": 8,
+                "first_alternative_matras_count": 3,
+                "second_alternative_matras_count": 3,
+                "has_extra_guru": False,
+            },
+            {
+                "total_matras_per_line": 12,
+                "total_ganas_per_line": 4,
+                "first_alternative_matras_count": 3,
+                "second_alternative_matras_count": 3,
+                "has_extra_guru": False,
+            },
+            {
+                "total_matras_per_line": 11,
+                "total_ganas_per_line": 3,
+                "first_alternative_matras_count": 3,
+                "second_alternative_matras_count": 3,
+                "has_extra_guru": True,
+            },
+        ]
 
-    _gana_should_not_occur_1 = "12"
-    _gana_should_not_occur_2 = "12"
+        self._gana_should_not_occur_1 = "12"
+        self._gana_should_not_occur_2 = "12"
 
 
 class Mandanila(Ragale):
-    _name = Constant.chandassu_names.get("ragale").get("mandanila")
+    def __init__(self, poem_letters, prastara_symbols, prastara_values):
+        super().__init__(poem_letters, prastara_symbols, prastara_values)
 
-    _scenarios = [
-        {
-            "total_matras_per_line": 16,
-            "total_ganas_per_line": 4,
-            "first_alternative_matras_count": 4,
-            "second_alternative_matras_count": 4,
-            "has_extra_guru": False,
-        },
-        {
-            "total_matras_per_line": 16,
-            "total_ganas_per_line": 4,
-            "first_alternative_matras_count": 3,
-            "second_alternative_matras_count": 5,
-            "has_extra_guru": False,
-        },
-    ]
+        self._name = Constant.chandassu_names.get("ragale").get("mandanila")
 
-    _gana_should_not_occur_1 = "12"
-    _gana_should_not_occur_2 = "12"
+        self._scenarios = [
+            {
+                "total_matras_per_line": 16,
+                "total_ganas_per_line": 4,
+                "first_alternative_matras_count": 4,
+                "second_alternative_matras_count": 4,
+                "has_extra_guru": False,
+            },
+            {
+                "total_matras_per_line": 16,
+                "total_ganas_per_line": 4,
+                "first_alternative_matras_count": 3,
+                "second_alternative_matras_count": 5,
+                "has_extra_guru": False,
+            },
+        ]
+
+        self._gana_should_not_occur_1 = "12"
+        self._gana_should_not_occur_2 = "12"
 
 
 class Lalita(Ragale):
-    _name = Constant.chandassu_names.get("ragale").get("lalita")
+    def __init__(self, poem_letters, prastara_symbols, prastara_values):
+        super().__init__(poem_letters, prastara_symbols, prastara_values)
 
-    _scenarios = [
-        {
-            "total_matras_per_line": 20,
-            "total_ganas_per_line": 4,
-            "first_alternative_matras_count": 5,
-            "second_alternative_matras_count": 5,
-            "has_extra_guru": False,
-        }
-    ]
+        self._name = Constant.chandassu_names.get("ragale").get("lalita")
 
-    _gana_should_not_occur_1 = "1211"
-    _gana_should_not_occur_2 = "122"
+        self._scenarios = [
+            {
+                "total_matras_per_line": 20,
+                "total_ganas_per_line": 4,
+                "first_alternative_matras_count": 5,
+                "second_alternative_matras_count": 5,
+                "has_extra_guru": False,
+            }
+        ]
+
+        self._gana_should_not_occur_1 = "1211"
+        self._gana_should_not_occur_2 = "122"

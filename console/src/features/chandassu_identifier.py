@@ -1,35 +1,23 @@
-from ..chandassu import chandassu_types
+from ..chandassu import ChandassuTypes
 
 
 class ChandassuIdentifier:
-    _poem_letters = []
-    _prastara_symbol = []
-    _prastara_value = []
-    _chandassu_type = None
+    def __init__(self, poem_letters, prastara_symbol, prastara_value):
+        self._poem_letters = poem_letters
+        self._prastara_symbol = prastara_symbol
+        self._prastara_value = prastara_value
 
-    @classmethod
-    def set_poem_letters(cls, poem_letters):
-        cls._poem_letters = poem_letters
+        self._chandassu_type = None
 
-    @classmethod
-    def set_prastara_symbol(cls, prastara_symbol):
-        cls._prastara_symbol = prastara_symbol
+    def chandassu_type(self):
+        return self._chandassu_type
 
-    @classmethod
-    def set_prastara_value(cls, prastara_value):
-        cls._prastara_value = prastara_value
-
-    @classmethod
-    def chandassu_type(cls):
-        return cls._chandassu_type
-
-    @classmethod
-    def identify(cls):
-        for chandassu_type in chandassu_types:
-            chandassu_type.set_poem_letters(cls._poem_letters)
-            chandassu_type.set_prastara_symbol(cls._prastara_symbol)
-            chandassu_type.set_prastara_value(cls._prastara_value)
+    def identify(self):
+        for ChandassuType in ChandassuTypes:
+            chandassu_type = ChandassuType(
+                self._poem_letters, self._prastara_symbol, self._prastara_value
+            )
 
             if chandassu_type.identified():
-                cls._chandassu_type = chandassu_type
+                self._chandassu_type = chandassu_type
                 return

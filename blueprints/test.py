@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request
 
-from console.src.features.chandassu_type import ChandassuType
+from console.src.features.chandassu_type import get_chandassu_type
 
 test_bp = Blueprint(
     "test_bp", __name__, url_prefix="test", template_folder="../templates/test"
@@ -24,7 +24,7 @@ def test():
 def result():
     test_poem = request.form.get("poem")
 
-    chandassu_type = ChandassuType.get_chandassu_type(test_poem)
+    chandassu_type = get_chandassu_type(test_poem)
 
     content = {
         "title": "Result",
