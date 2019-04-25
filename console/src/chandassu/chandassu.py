@@ -59,6 +59,7 @@ class Chandassu:
 
         LAGHU_SYMBOL = Constant.prastara_info.get("laghu").get("symbol")
         GURU_SYMBOL = Constant.prastara_info.get("guru").get("symbol")
+        SPACE_SYMBOL = Constant.prastara_info.get("space").get("symbol")
 
         lines_count = len(self._poem_letters)
         i = 0
@@ -95,6 +96,53 @@ class Chandassu:
                 if current_matras_count != matras_count:
                     j = j + 1
                     continue
+
+                try:
+                    next_prastara_symbol = self._prastara_symbols[i][j + 1]
+                    next_poem_letter = self._poem_letters[i][j + 1]
+
+                    is_next_element_halant_letter = (
+                        next_prastara_symbol == SPACE_SYMBOL
+                        and next_poem_letter != SPACE_SYMBOL
+                    )
+
+                    if is_next_element_halant_letter:
+                        self._poem_letters_ganas[i].append(next_poem_letter)
+                        self._prastara_symbols_ganas[i].append(next_prastara_symbol)
+
+                        j = j + 1
+                except:
+                    pass
+
+                try:
+                    next_prastara_symbol = self._prastara_symbols[i][j + 1]
+                    next_poem_letter = self._poem_letters[i][j + 1]
+
+                    next_to_next_prastara_symbol = self._prastara_symbols[i][j + 2]
+                    next_to_next_poem_letter = self._poem_letters[i][j + 2]
+
+                    is_next_element_space = (
+                        next_prastara_symbol == SPACE_SYMBOL
+                        and next_poem_letter == SPACE_SYMBOL
+                    )
+
+                    is_next_to_next_element_halant_letter = (
+                        next_to_next_prastara_symbol == SPACE_SYMBOL
+                        and next_to_next_poem_letter != SPACE_SYMBOL
+                    )
+
+                    if is_next_element_space and is_next_to_next_element_halant_letter:
+                        self._poem_letters_ganas[i].append(next_poem_letter)
+                        self._prastara_symbols_ganas[i].append(next_prastara_symbol)
+
+                        self._poem_letters_ganas[i].append(next_to_next_poem_letter)
+                        self._prastara_symbols_ganas[i].append(
+                            next_to_next_prastara_symbol
+                        )
+
+                        j = j + 2
+                except:
+                    pass
 
                 self._poem_letters_ganas[i].append(self._gana_symbol)
                 self._prastara_symbols_ganas[i].append(self._gana_symbol)
