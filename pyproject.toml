@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "chandassu"
+version = "0.1.0"
+description = ""
+authors = ["anuprshetty <anuprshetty@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+blinker = "1.6.2"
+click = "8.1.4"
+flask = "2.3.2"
+itsdangerous = "2.1.2"
+jinja2 = "3.1.2"
+markupsafe = "2.1.3"
+werkzeug = "2.3.6"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
