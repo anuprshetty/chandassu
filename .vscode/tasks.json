@@ -1,0 +1,69 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+
+  // Available variables which can be used inside of strings.
+  // $(workspaceRoot): the project root folder
+  // $(file): the current opened file
+  // $(fileDirname): the current opened file's dirname
+  // ${fileBasename): the current opened file's basename
+  // $(fileExtname): the current opened file's extension
+  // $(cwd): the current working directory of the spawned process
+
+  "version": "2.0.0",
+  "type": "shell",
+  "presentation": {
+    "reveal": "always",
+    "panel": "dedicated", // options: 'dedicated', 'shared'
+    "showReuseMessage": false // Controls whether to show the "Terminal will be reused by tasks, press any key to close it" message.
+  },
+
+  "tasks": [
+    {
+      "label": "prerequisites->venv->activate",
+      "command": ". .venv/bin/activate"
+    },
+    {
+      "label": "prerequisites->venv->deactivate",
+      "command": "deactivate"
+    },
+    {
+      "label": "web_app->show_api_routes",
+      "command": ". .venv/bin/activate && flask routes"
+    },
+    {
+      "label": "web_app->flask_shell",
+      "command": ". .venv/bin/activate && flask shell"
+    },
+    {
+      "label": "web_app->run_on->docker_compose->up",
+      "command": "docker compose up --build --detach"
+    },
+    {
+      "label": "web_app->run_on->docker_compose->down",
+      "command": "docker compose down"
+    },
+    {
+      "label": "web_app->run_on->docker_compose->logs",
+      "command": "docker compose logs --timestamps --follow"
+    },
+    {
+      "label": "web_app->run_on->local->python",
+      "command": ". .venv/bin/activate && python app.py",
+      "dependsOrder": "sequence", // by default, "parallel"
+      "dependsOn": ["prerequisites->venv->activate"]
+    },
+    {
+      "label": "web_app->run_on->local->uwsgi",
+      "command": ". .venv/bin/activate && uwsgi --ini uwsgi.ini"
+    },
+    {
+      "label": "console_app->run",
+      "command": ". .venv/bin/activate && python console/main.py"
+    },
+    {
+      "label": "console_app->test",
+      "command": ". .venv/bin/activate && python -m unittest discover --start-directory './console' --pattern 'test_*.py' --verbose"
+    }
+  ]
+}

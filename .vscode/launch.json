@@ -3,14 +3,22 @@
   // Hover to view descriptions of existing attributes.
   // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
   "version": "0.2.0",
+  "console": "integratedTerminal",
+  "cwd": "${workspaceFolder}",
   "configurations": [
     {
-      "name": "console: app",
-      "type": "python",
+      "name": "console_app",
       "request": "launch",
-      "program": "${workspaceFolder}/console/app.py",
-      "console": "integratedTerminal",
-      "justMyCode": true
+      "type": "python",
+      "program": "console/main.py",
+      "preLaunchTask": "prerequisites->venv->activate"
+    },
+    {
+      "name": "web_app",
+      "request": "launch",
+      "type": "python",
+      "program": "app.py",
+      "preLaunchTask": "prerequisites->venv->activate"
     }
   ]
 }
