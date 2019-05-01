@@ -47,7 +47,7 @@ class TestChandassuType(unittest.TestCase):
                 poem_file_path = os.path.join(sub_folder_path, file_name)
                 print(f"       * {file_name}")
 
-                with open(poem_file_path, "r") as poem_fd:
+                with open(poem_file_path, "r", encoding="utf-8") as poem_fd:
                     poem_file_content = poem_fd.read().strip()
                     poems = re.split(r"\n\s*\n", poem_file_content)
 

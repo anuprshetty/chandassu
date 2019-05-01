@@ -29,7 +29,7 @@ def get_random_poem():
 
     random_poem_file_path = random.choice(poem_file_paths)
 
-    with open(random_poem_file_path, "r") as poem_fd:
+    with open(random_poem_file_path, "r", encoding="utf-8") as poem_fd:
         poem_file_content = poem_fd.read().strip()
         poems = re.split(r"\n\s*\n", poem_file_content)
 
@@ -39,6 +39,3 @@ def get_random_poem():
     random_poem = random.choice(poems)
 
     return random_poem
-
-
-get_random_poem()
