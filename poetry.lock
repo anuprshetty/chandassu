@@ -146,6 +146,16 @@ files = [
 ]
 
 [[package]]
+name = "uwsgi"
+version = "2.0.21"
+description = "The uWSGI server"
+optional = false
+python-versions = "*"
+files = [
+    {file = "uwsgi-2.0.21.tar.gz", hash = "sha256:35a30d83791329429bc04fe44183ce4ab512fcf6968070a7bfba42fc5a0552a9"},
+]
+
+[[package]]
 name = "werkzeug"
 version = "2.3.6"
 description = "The comprehensive WSGI web application library."
@@ -165,4 +175,4 @@ watchdog = ["watchdog (>=2.3)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "23af56406ff76895628731bc23716160b8f733369dca8d9e7500a19de1fdbc97"
+content-hash = "4cc75dc0c05200087d1770ffcb576b93ddf67c445239ef016cf3a4f5f9688bd2"
