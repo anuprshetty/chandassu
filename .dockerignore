@@ -1,0 +1,12 @@
+# default files
+**/.DS_Store
+__pycache__/
+.venv/
+
+# project files
+**/README.md
+console/output/
+console/tests/
+console/input_kannada_poem.txt
+console/main.py
+unix_domain_socket.sock
