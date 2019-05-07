@@ -1,0 +1,11 @@
+version: "2" # version of docker compose
+
+services:
+  chandassu-web-app:
+    build: .
+    image: chandassu-web-app-image:latest
+    container_name: chandassu-web-app-container
+    hostname: chandassu-web-app
+    restart: "no"
+    ports:
+      - "8080:80"
