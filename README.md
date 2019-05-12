@@ -13,5 +13,5 @@ Prosody analysis and identification of metrics for Kannada verses using rule-bas
 
 ## Contributions are welcomed
 
-- [How to run](./vscode/tasks.json)
+- [How to run](./.vscode/tasks.json)
 - Happy coding!
