@@ -26,8 +26,7 @@ jobs:
           curl -sSL https://install.python-poetry.org | python${{ env.PYTHON_VERSION }} - && \
           $HOME/.local/bin/poetry config virtualenvs.in-project true && \
           $HOME/.local/bin/poetry config virtualenvs.options.always-copy true && \
-          $HOME/.local/bin/poetry config virtualenvs.path "venv" && \
-          source $HOME/.poetry/env
+          $HOME/.local/bin/poetry config virtualenvs.path "venv"
 
       - name: Install project dependencies
         run: |
