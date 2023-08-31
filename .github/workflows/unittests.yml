@@ -1,0 +1,44 @@
+name: Run Unit Tests
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  PYTHON_VERSION: 3.11
+
+jobs:
+  unittests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Install Poetry
+        run: |
+          curl -sSL https://install.python-poetry.org | python${{ env.PYTHON_VERSION }} - && \
+          /root/.local/bin/poetry config virtualenvs.in-project true && \
+          /root/.local/bin/poetry config virtualenvs.options.always-copy true && \
+          /root/.local/bin/poetry config virtualenvs.path "venv" && \
+          source $HOME/.poetry/env
+
+      - name: Install project dependencies
+        run: |
+          /root/.local/bin/poetry install
+
+      - name: Run unittests
+        run: |
+          . .venv/bin/activate && \
+          python -m unittest discover --start-directory './console' --pattern 'test_*.py' --verbose
+
+      - name: Deploy app
+        run: |
+          deployment_trigger_api_response=$(curl -s "${{ secrets.RENDER_PLATFORM_DEPLOY_HOOK }}") && \
+          echo "Deployment trigger API response: $deployment_trigger_api_response"
