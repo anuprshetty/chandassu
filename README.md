@@ -1,5 +1,7 @@
 # Chandassu (ಛಂದಸ್ಸು)
 
+[![App workflow](https://github.com/anuprshetty/chandassu/actions/workflows/app_workflow.yml/badge.svg?branch=main)](https://github.com/anuprshetty/chandassu/actions/workflows/app_workflow.yml)
+
 ನಿಯಮಾಧಾರಿತ ವಿಧಾನವನ್ನು ಬಳಸಿಕೊಂಡು ಕನ್ನಡ ಪದ್ಯಗಳಿಗೆ ಪ್ರಸ್ತಾರ ಗುರುತಿಸುವಿಕೆ ಹಾಗೂ ಛಂದಸ್ಸಿನ ವಿಶ್ಲೇಷಣೆ
 
 Prosody analysis and identification of metrics for Kannada verses using rule-based approach
