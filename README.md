@@ -21,3 +21,4 @@ Prosody analysis and identification of metrics for Kannada verses using rule-bas
 ## Debug tools
 
 - Flush socket pools --> chrome://net-internals/#sockets
+- [Render platform docker deployment dashboard](https://dashboard.render.com/)
