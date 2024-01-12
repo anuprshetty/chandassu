@@ -36,6 +36,26 @@
       "command": ". .venv/bin/activate && flask shell"
     },
     {
+      "label": "web_app->github_workflows->1.act_list",
+      "command": "act --list"
+    },
+    {
+      "label": "web_app->github_workflows->2.act_graph",
+      "command": "act --graph"
+    },
+    {
+      "label": "web_app->github_workflows->3.act_dryrun",
+      "command": "act --dryrun"
+    },
+    {
+      "label": "web_app->github_workflows->4.act_run",
+      "command": "act --rm --secret-file ./.github/.secrets"
+    },
+    {
+      "label": "web_app->github_workflows->5.act_clean",
+      "command": "act --dryrun"
+    },
+    {
       "label": "web_app->run_on->docker_compose->up",
       "command": "docker compose up --build --detach"
     },
