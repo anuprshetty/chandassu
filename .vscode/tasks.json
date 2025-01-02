@@ -20,6 +20,22 @@
 
   "tasks": [
     {
+      "label": "prerequisites->poetry->install",
+      "command": "poetry install"
+    },
+    {
+      "label": "prerequisites->poetry->cleanup",
+      "command": "rm -rf .venv/ poetry.lock"
+    },
+    {
+      "label": "prerequisites->poetry->reset",
+      "dependsOrder": "sequence", // by default, "parallel"
+      "dependsOn": [
+        "prerequisites->poetry->cleanup",
+        "prerequisites->poetry->install"
+      ]
+    },
+    {
       "label": "prerequisites->venv->activate",
       "command": ". .venv/bin/activate"
     },
